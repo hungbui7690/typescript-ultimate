@@ -1,17 +1,11 @@
 /*
-  Module Format 
-  - AMD (old)
-  - UMD (old)
-  - CommonJS
-  - ES2015/ES6
-
-
-  - tsconfig: "module": "commonjs",
-    > tsc > then check JS file
-    > change to ES2015 and also check JS file
+  Default Export
+  - sometimes, when we want to export a single thing > use Default Export
+  - create storage.ts
 
 */
 
 import { Circle as MyCircle } from './shapes'
+import Store, { Format } from './storage' // default + named import
 
-let circle = new MyCircle(1)
+const store = new Store()
