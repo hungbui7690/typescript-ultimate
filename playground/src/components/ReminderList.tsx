@@ -1,16 +1,18 @@
-// naming convention
-interface Reminder {
-  id: number
-  title: string
+import Reminder from '../models/Reminder' // ***
+
+export interface ReminderListProps {
+  items: Reminder[]
 }
 
-interface ReminderListProps {
-  items: Reminder[] // use here
-}
-
-// use here
-const ReminderList = (props: ReminderListProps) => {
-  return <div></div>
+const ReminderList = ({ items }: ReminderListProps) => {
+  // hover, we will see item has type of Reminder
+  return (
+    <ul>
+      {items.map((item) => (
+        <li key={item.id}>{item.title}</li>
+      ))}
+    </ul>
+  )
 }
 
 export default ReminderList
