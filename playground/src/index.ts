@@ -1,12 +1,17 @@
 /*
-  Objects P5
+  Objects P6
   
 */
 
-// readonly
-let employee: { readonly id: number; name: string; nickName?: string } = {
+let employee: {
+  readonly id: number
+  name: string
+  nickName?: string
+  retire: (date: Date) => void // must have method retire()
+} = {
   id: 1,
   name: 'Joe',
-}
 
-employee.id = 2 // invalid
+  // implement here > though it does not have param, TS still not complains ????
+  retire() {},
+}
