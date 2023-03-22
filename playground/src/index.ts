@@ -1,11 +1,11 @@
 /*
-  Functions P7
+  Functions P8
 
 */
 
-function calculateTax(income: number, taxYear?: number): number {
-  // first solution: good old ES5
-  if ((taxYear || 2022) < 2022) {
+// 2nd solution: default param
+function calculateTax(income: number, taxYear: number = 2022): number {
+  if (taxYear < 2022) {
     return income * 1.2
   }
 
