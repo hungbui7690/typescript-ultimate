@@ -1,9 +1,8 @@
 /*
-  Polymorphism P1
-  - Poly: many
-  - Morph: form
-  
-  > if we don't have Polymorphism, we need to use if/else or switch/case for each type of instances
+  Polymorphism P2
+
+  (***) Open Closed Principle
+    - classes should be open for extension and closed for modification
 
 */
 
@@ -34,15 +33,21 @@ class Teacher extends Person {
   }
 }
 
-//////////////////////////////////////
-
-// (***) think about this > why we use Person[]
-function printNames(people: Person[]) {
-  for (let person of people) {
-    console.log(person.fullName) // depends on the type of each instance, it will log out different inputs
+// (***) why it is so powerful?
+class Principal extends Person {
+  override get fullName() {
+    return `Principal ${super.fullName}`
   }
 }
 
-// first iteration: take the form of Student
-// second iteration: take the form of Teacher
-printNames([new Student(1, 'John', 'Smith'), new Teacher('Joe', 'Doe')])
+function printNames(people: Person[]) {
+  for (let person of people) {
+    console.log(person.fullName)
+  }
+}
+
+printNames([
+  new Student(1, 'John', 'Smith'),
+  new Teacher('Joe', 'Doe'),
+  new Principal('Jackson', 'Duck'), // (***) it's powerful because we don't have to change function printNames()
+])
