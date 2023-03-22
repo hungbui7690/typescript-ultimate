@@ -1,5 +1,5 @@
 /*
-  Type Mapping P2
+  Type Mapping P3
 
 */
 
@@ -8,24 +8,15 @@ interface Product {
   price: number
 }
 
-// (***) Solution 2: Type Mapping > type alias > use Index Signature + keyof
-// "Property" === T === K === generic type
+// (***) Solution 2: add readonly
 type ReadOnlyProduct = {
-  [Property in keyof Product]: Product[Property]
+  readonly [Property in keyof Product]: Product[Property]
 }
 
-class Store<T> {
-  protected _items: T[]
-
-  add(item: T): void {
-    this._items.push(item)
-  }
-  find(property: keyof T, value: unknown): T | undefined {
-    return this._items.find((item) => item[property] === value)
-  }
+// (***) use ReadOnlyProduct as type
+let product: ReadOnlyProduct = {
+  name: 'Soap',
+  price: 10,
 }
 
-let store = new Store<Product>()
-store.add({ name: 'Soap', price: 10 })
-store.find('name', 'Soap')
-store.find('price', 10)
+product.name = 'Dish' // we cannot change since it's readonly
