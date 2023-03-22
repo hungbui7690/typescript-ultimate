@@ -1,6 +1,6 @@
 /*
-  Re-Exporting P1
-  - create shape/index.ts
+  Re-Exporting P2
+  - check shape/index.ts
 
 */
 
