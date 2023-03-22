@@ -1,14 +1,15 @@
 /*
-  Method Decorators P5
+  Method Decorators P6
 
 */
 
 function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
-  const original = descriptor.value as Function // type assertion
+  const original = descriptor.value as Function
 
-  descriptor.value = function () {
+  // if we don't want to hard code the message > add parameter here
+  descriptor.value = function (message: string) {
     console.log('Before')
-    original.call(this, 'Hi there!!!') // call say('Hi there!!!') > this case we hard code the message
+    original.call(this, message) // use here
     console.log('After')
   }
 }
@@ -21,4 +22,4 @@ class Person {
 }
 
 const person = new Person()
-person.say('Hello') // we can see that this methods implementation is changed > it uses the implementation of decorator
+person.say('Hello') // (***)

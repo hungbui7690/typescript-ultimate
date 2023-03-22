@@ -1,6 +1,6 @@
 "use strict";
 /*
-  Method Decorators P5
+  Method Decorators P6
 
 */
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,10 +10,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 function Log(target, methodName, descriptor) {
-    const original = descriptor.value; // type assertion
-    descriptor.value = function () {
+    const original = descriptor.value;
+    // if we don't want to hard code the message > add parameter here
+    descriptor.value = function (message) {
         console.log('Before');
-        original.call(this, 'Hi there!!!'); // call say('Hi there!!!') > this case we hard code the message
+        original.call(this, message); // use here
         console.log('After');
     };
 }
@@ -26,4 +27,4 @@ __decorate([
     Log
 ], Person.prototype, "say", null);
 const person = new Person();
-person.say('Hello'); // we can see that this methods implementation is changed > it uses the implementation of decorator
+person.say('Hello'); // (***)
