@@ -1,5 +1,5 @@
 /*
-  Extending Generic Classes P1
+  Extending Generic Classes P2
 
 */
 
@@ -9,12 +9,12 @@ interface Product {
 }
 
 class Store<T> {
-  items: T[]
+  private _items: T[] // private
 
   add(item: T): void {
-    this.items.push(item)
+    this._items.push(item)
   }
 }
 
 let store = new Store<Product>()
-store.items = [] // with this implementation, we can easily clear the store by mistake
+store._items = [] // error if we want to change _items
