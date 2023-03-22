@@ -1,14 +1,13 @@
 /*
-  Union Types P2
+  Union Types P3
 
 */
 
-// type narrowing
-function kgToLbs(weight: number | string) {
+function kgToLbs(weight: number | string): number {
   if (typeof weight === 'string') {
-    weight // string
+    return parseFloat(weight) * 2.2 // TS does not care about the logic, it just care about the type > this case, we still can use parseFloat('10kg')
   } else {
-    weight // number
+    return weight * 0.454
   }
 }
 
