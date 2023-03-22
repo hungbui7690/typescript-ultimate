@@ -1,8 +1,14 @@
 /*
-  Using Definitely Typed Declaration Files P1
-  - use with 3rd party libs
-  - npm install lodash
+  Using Definitely Typed Declaration Files P2
+  - https://github.com/DefinitelyTyped/DefinitelyTyped
+
+  > npm i --save-dev @types/lodash
+  > npm i -D @types/lodash
+    > need to install as devDependencies
 
 */
 
-import * as _ from 'lodash' // err because lodash is pure 100% JS code > this is the time we need to use the most popular Github Repo for Types: DefinitelyTyped
+import * as _ from 'lodash'
+
+_.clone() // hover > we will see the type
+_.clone([1, 2, 3]) // hover > we will see the type
