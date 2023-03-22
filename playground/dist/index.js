@@ -5,6 +5,9 @@ class Account {
         this.owner = owner;
         this._balance = balance;
     }
+    getBalance() {
+        return this._balance;
+    }
     deposit(amount) {
         if (amount <= 0)
             throw new Error('Invalid Amount!!');
@@ -12,5 +15,4 @@ class Account {
     }
 }
 let account = new Account(1, 'bic', 123);
-account._balance = 100000;
-console.log(account);
+console.log(account.getBalance());

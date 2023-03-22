@@ -1,19 +1,24 @@
 /*
-  Access Control Keyword P2
-  - default = public
+  Access Control Keyword P3
+  - what if we want to show the balance to customer > getter
 
 */
 
 class Account {
   readonly id: number
   owner: string
-  private _balance: number // we use private keyword here > convention is to use _ for private property
+  private _balance: number
   nickName?: string
 
   constructor(id: number, owner: string, balance: number) {
     this.id = id
     this.owner = owner
     this._balance = balance
+  }
+
+  // (***) getter
+  getBalance() {
+    return this._balance
   }
 
   deposit(amount: number): void {
@@ -24,5 +29,4 @@ class Account {
 
 let account = new Account(1, 'bic', 123)
 
-account._balance = 100_000 // complain here
-console.log(account)
+console.log(account.getBalance()) // (***)
