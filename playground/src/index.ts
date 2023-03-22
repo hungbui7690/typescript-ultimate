@@ -1,20 +1,16 @@
 /*
-  Method Decorators P1
-  > https://www.typescriptlang.org/docs/handbook/decorators.html
-    > The expression for the method decorator will be called as a function at runtime, with the following three arguments:
-      + Either the constructor function of the class for a static member, or the prototype of the class for an instance member.
-      + The name of the member.
-      + The Property Descriptor for the member.
+  Method Decorators P2
+
 
 */
 
-// example from the docs (link above)
-function enumerable(value: boolean) {
-  return function (
-    target: any,
-    propertyKey: string,
-    descriptor: PropertyDescriptor // (***)
-  ) {
-    descriptor.enumerable = value
+// (1) declare method decorator
+function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {}
+
+class Person {
+  // (2) use method decorator
+  @Log
+  say(message: string) {
+    console.log(`Person says: ${message}`)
   }
 }
