@@ -1,16 +1,21 @@
 /*
-  Method Decorators P2
-
+  Method Decorators P3
 
 */
 
-// (1) declare method decorator
-function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {}
+function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
+  // (***)
+  descriptor.value = function () {
+    console.log(`New Implementation !!!!`)
+  }
+}
 
 class Person {
-  // (2) use method decorator
   @Log
   say(message: string) {
     console.log(`Person says: ${message}`)
   }
 }
+
+const person = new Person()
+person.say('Hello') // we can see that this methods implementation is changed > it uses the implementation of decorator
