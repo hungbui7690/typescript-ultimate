@@ -1,16 +1,27 @@
 /*
-  Interfaces P2
-
-  - What should we use? Interfaces or Abstract Classes? 
-    > if we have some common logic that we want to share across the class > use abstract 
-    > here we just define the interface, without any implementation > use Interfaces
+  Interfaces P3
 
 */
 
-// to make it cleaner > use interfaces
 interface Calendar {
   name: string
 
   addEvent(): void
   removeEvent(): void
+}
+
+// (***)
+interface CloudCalendar extends Calendar {
+  sync(): void
+}
+
+// now we want to have real / concrete calendar > instead use the extends keyword > use implements keyword
+class GoogleCalendar implements CloudCalendar {
+  constructor(public name: string) {}
+
+  addEvent(): void {}
+
+  removeEvent(): void {}
+
+  sync(): void {}
 }
