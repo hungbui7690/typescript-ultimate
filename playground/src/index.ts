@@ -1,15 +1,21 @@
 /*
-  What are Decorators? 
-  - attributes that we can apply to class and members, so we can change the way they behave 
-
-  (***) > Angular, Vue has many decorators > @Python, @Component... 
-        > Decorators are just functions > are called at runtime and pass the class to it > it has the chance to modify the class : add properties, methods...
-
-  (***) because decorators are still in experimental > need to turn on in tsconfig
-        > "experimentalDecorators": true
+  Class Decorators P1
+  - convention is to used "constructor"
+  - type = Function
 
 */
 
-// Example: TS does not have Component
+// (***)
+function Component(constructor: Function) {
+  console.log('Component Decorator Called !!')
+
+  // add new members in the prototype of the class that has decorator
+  constructor.prototype.uniqueID = Date.now()
+  constructor.prototype.insertInDOM = () => {
+    console.log('Inserting the component in the DOM')
+  }
+}
+
+// based on what we did above, this class should have 2 new members that we defined above
 @Component
 class ProfileComponent {}
