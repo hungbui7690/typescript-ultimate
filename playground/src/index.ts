@@ -1,25 +1,14 @@
 /*
-  Method Decorators P9
+  Accessor Decorators P1
+  - getters & setters
 
 */
 
-function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
-  const original = descriptor.value as Function
-
-  // (***) remember DON'T use ARROW FN here > since we use "this" keyword
-  descriptor.value = (...args: any) => {
-    console.log('Before')
-    original.call(this, ...args)
-    console.log('After')
-  }
-}
-
 class Person {
-  @Log
-  say(message: string) {
-    console.log(`Person says: ${message}`)
+  constructor(public firstName: string, public lastName: string) {}
+
+  // getter
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`
   }
 }
-
-const person = new Person()
-person.say('Hello') // (***)
