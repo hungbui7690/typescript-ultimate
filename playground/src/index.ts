@@ -1,11 +1,12 @@
 /*
-  Type Checking JS Code P3
-  - // @ts-nocheck in js file
+  Describing Types using JSDoc P1
+  - js file
+    > use multiple lines comment > generate the JSDoc for us
+    > /** enter */
 
-  - why JS does not complain if we don't supply argument? 
-    > because we don't supply type for income > type = any 
-    > if we don't pass any argument > undefined 
-*/
+// * @param {number} income
+// * @returns {number}
+// if we compile > show error
 
 import { calculateTax } from './tax'
 
