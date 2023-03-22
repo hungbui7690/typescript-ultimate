@@ -1,9 +1,10 @@
 /*
-  Functions P5
+  Functions P6
 
 */
 
-function calculateTax(income: number, taxYear: number): number {
+// optional > ?: > hover taxYear > if we don't supply taxYear > taxYear = undefined
+function calculateTax(income: number, taxYear?: number): number {
   if (taxYear < 2022) {
     return income * 1.2
   }
