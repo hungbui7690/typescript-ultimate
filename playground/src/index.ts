@@ -1,11 +1,18 @@
 /*
-  The unknown Type P3
+  The unknown Type P4
+
+  (***) use "unknown" type other than "any" type
 
 */
 
-// we can use type narrowing to narrow down the type
+class WordDocument {
+  walk() {}
+}
+
 function render(document: unknown) {
   if (typeof document === 'string') document.toUpperCase()
 
   if (typeof document === 'number') document.toFixed()
+
+  if (document instanceof WordDocument) document.walk() // learn later > this is also a way to narrow down type when it is an instance of class
 }
