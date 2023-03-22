@@ -1,10 +1,9 @@
 /*
-  The any Type P1
-  - any: we can change the type > it against the idea behind TS
-    > avoid using "any"
+  The any Type P2
 
 */
 
-let level
-level = 1
-level = 'a'
+// in this case, document has the type of "any" implicitly > we need to use "any" in this case
+function render(document: any) {
+  console.log(document)
+}
