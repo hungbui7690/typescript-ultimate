@@ -1,18 +1,15 @@
 "use strict";
 class Ride {
-    constructor() {
-        this.activeRides = 0;
-    }
     start() {
-        this.activeRides++;
+        Ride.activeRides++;
     }
     stop() {
-        this.activeRides--;
+        Ride.activeRides--;
     }
 }
+Ride.activeRides = 0;
 let ride1 = new Ride();
 ride1.start();
 let ride2 = new Ride();
 ride2.start();
-console.log(ride1.activeRides);
-console.log(ride2.activeRides);
+console.log(Ride.activeRides);
