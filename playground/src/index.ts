@@ -1,11 +1,16 @@
 /*
-  Creating Class P1
+  Creating Class P2
 
 */
 
-// error because we did not initialize those properties
 class Account {
   id: number
   owner: string
   balance: number
+
+  constructor(id: number, owner: string, balance: number) {
+    this.id = id
+    this.owner = owner
+    this.balance = balance
+  }
 }
