@@ -1,11 +1,10 @@
 "use strict";
 /*
-  Nullish Coalescing Operator P1
+  Nullish Coalescing Operator P2
 
 */
-// falsy: 0, '', false, undefined, null
 let speed = null;
 let ride = {
-    speed: speed || 30,
+    speed: speed !== null ? speed : 30, // similar to: speed || 30 > still falsy value
 };
 console.log(ride.speed); // 30
