@@ -11,3 +11,4 @@ class Account {
         this.balance += amount;
     }
 }
+let account = new Account(1, 'bic', 123);

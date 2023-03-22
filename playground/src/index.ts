@@ -1,6 +1,5 @@
 /*
-  Creating Class P3
-  - check JS file
+  Creating Objects P1
 
 */
 
@@ -15,10 +14,12 @@ class Account {
     this.balance = balance
   }
 
-  // method
   deposit(amount: number): void {
     if (amount <= 0) throw new Error('Invalid Amount!!')
 
     this.balance += amount
   }
 }
+
+let account = new Account(1, 'bic', 123)
+// account.  // only show methods and properties that are in this class
