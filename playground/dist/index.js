@@ -1,8 +1,11 @@
 "use strict";
 /*
-  Optional Chaining P5
+  Nullish Coalescing Operator P1
 
 */
-let log = (message) => console.log(message);
-log = null;
-log === null || log === void 0 ? void 0 : log('a'); // optional chaining when calling a function
+// falsy: 0, '', false, undefined, null
+let speed = null;
+let ride = {
+    speed: speed || 30,
+};
+console.log(ride.speed); // 30
