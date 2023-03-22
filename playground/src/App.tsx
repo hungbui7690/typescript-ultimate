@@ -1,5 +1,5 @@
 /*
-  Using the State Hook P1
+  Using the State Hook P2
 
 */
 
@@ -14,7 +14,8 @@ const reminders: Reminder[] = [
 ]
 
 function App() {
-  const [reminders, setReminders] = useState<Reminder[]>() // Reminder[] | undefined > undefined because we did not initialize > if we don't supply arg, undefined will be passed
+  const [reminders, setReminders] = useState<Reminder[]>([]) // pass empty array > Reminder[]
+  const [loading, setLoading] = useState(true) // if we don't supply the type, TS will infer the type for us
 
   return (
     <div>
