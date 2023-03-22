@@ -5,12 +5,16 @@ export interface ReminderListProps {
 }
 
 const ReminderList = ({ items }: ReminderListProps) => {
-  // add some bootstrap classes
   return (
     <ul className='list-group'>
       {items.map((item) => (
         <li key={item.id} className='list-group-item'>
           {item.title}
+
+          {/* *** */}
+          <button className='btn btn-outline-danger mx-3 rounded-pill'>
+            Delete
+          </button>
         </li>
       ))}
     </ul>

@@ -1,6 +1,6 @@
 /*
-  Using the Effect Hook P2
-  - apply some bootstrap class
+  Handling Events P1
+  - add delete button 
     > ReminderList
 
 */
