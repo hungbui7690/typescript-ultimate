@@ -21,6 +21,9 @@ class Student extends Person {
     }
 }
 class Teacher extends Person {
+    get fullName() {
+        return `Professor ${this.firstName} ${this.lastName}`;
+    }
 }
 let teacher = new Teacher('John', 'Smith');
 console.log(teacher.fullName);

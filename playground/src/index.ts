@@ -1,10 +1,9 @@
 /*
-  Method Overriding P1
+  Method Overriding P2
     
   
 */
 
-// super/base/parent class
 class Person {
   constructor(public firstName: string, public lastName: string) {}
 
@@ -28,7 +27,12 @@ class Student extends Person {
 
 //////////////////////////////////////
 
-class Teacher extends Person {}
+class Teacher extends Person {
+  // (***)
+  override get fullName() {
+    return `Professor ${this.firstName} ${this.lastName}`
+  }
+}
 
 let teacher = new Teacher('John', 'Smith')
-console.log(teacher.fullName) // (***) now using the getter of parent
+console.log(teacher.fullName)
