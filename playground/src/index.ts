@@ -1,14 +1,15 @@
 /*
-  Nullable Types P3
+  Optional Chaining P1
 
 */
 
-// we also can have undefined type
-function greet(name: string | null | undefined) {
-  if (name) console.log(name.toUpperCase())
-  else {
-    console.log('null or undefined param')
-  }
+type Customer = {
+  birthday: Date
 }
 
-greet(undefined)
+function getCustomer(id: number): Customer | null {
+  return id === 0 ? null : { birthday: new Date() }
+}
+
+let customer = getCustomer(0)
+console.log(customer.birthday)
