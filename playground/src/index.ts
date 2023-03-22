@@ -1,5 +1,5 @@
 /*
-  Optional Chaining P2
+  Optional Chaining P3
 
 */
 
@@ -7,16 +7,13 @@ type Customer = {
   birthday: Date
 }
 
-function getCustomer(id: number): Customer | null {
+// with optional chaining, we can add more falsy type if we want > undefined
+function getCustomer(id: number): Customer | null | undefined {
   return id === 0 ? null : { birthday: new Date() }
 }
 
-let customer = getCustomer(0)
+let customer1 = getCustomer(0)
+console.log(customer1?.birthday) // it still works
 
-// solution 1
-if (customer) {
-  console.log(customer.birthday)
-}
-
-// solution 2
-console.log(customer?.birthday)
+let customer2 = getCustomer(1)
+console.log(customer2?.birthday)
