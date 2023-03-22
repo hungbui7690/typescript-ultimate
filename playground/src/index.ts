@@ -1,11 +1,7 @@
 /*
-  Nullish Coalescing Operator P3
+  Nullish Coalescing Operator P4
 
 */
 
-let speed: number | null = null
-let ride = {
-  speed: speed ?? 30, // in this case, only speed = null | undefined, then speed = 30
-}
-
-console.log(ride.speed) // 30
+let foo = null ?? 'default'
+console.log(foo) // default
