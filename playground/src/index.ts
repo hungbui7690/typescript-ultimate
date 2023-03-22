@@ -1,14 +1,16 @@
 /*
-  Interfaces P1
-  - classes: blueprints for creating objects
-  - interfaces: to define a shape of objects
+  Interfaces P2
+
+  - What should we use? Interfaces or Abstract Classes? 
+    > if we have some common logic that we want to share across the class > use abstract 
+    > here we just define the interface, without any implementation > use Interfaces
 
 */
 
-// because we don't know which type of calendar it is > use abstract class
-abstract class Calender {
-  constructor(public name: string) {}
+// to make it cleaner > use interfaces
+interface Calendar {
+  name: string
 
-  addEvent() {}
-  removeEvent() {}
+  addEvent(): void
+  removeEvent(): void
 }
