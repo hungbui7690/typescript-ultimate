@@ -1,21 +1,13 @@
 /*
-  Intersection Types P2
+  Literal Types
+  - literal: specific or exact type 
 
 */
 
-type Draggable = {
-  drag: () => void
-}
+// if we want quantity to have the value of 50 or 100, nothing more
+type Quantity = 50 | 100
 
-type Resizable = {
-  resize: () => void
-}
+let quantity: Quantity = 50
 
-// intersection
-type UIWidget = Draggable & Resizable
-
-// must have 2 functions that we defined in both type alias
-let areaBox: UIWidget = {
-  drag() {},
-  resize() {},
-}
+// we can also use string
+type Metric = 'cm' | 'mm'
