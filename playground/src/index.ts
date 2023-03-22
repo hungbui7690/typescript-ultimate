@@ -1,10 +1,10 @@
 /*
-  readonly & Optional Properties P1
+  readonly & Optional Properties P2
 
 */
 
 class Account {
-  id: number
+  readonly id: number // (***)
   owner: string
   balance: number
 
@@ -15,7 +15,7 @@ class Account {
   }
 
   deposit(amount: number): void {
-    this.id = 0 // (***) right now, we still can change the value of id
+    this.id = 0 // complain
 
     if (amount <= 0) throw new Error('Invalid Amount!!')
 
@@ -25,10 +25,5 @@ class Account {
 
 let account = new Account(1, 'bic', 123)
 
-// (***)
-account.id = 10
-console.log(account)
-
-// (***)
-account.deposit(123)
+account.id = 10 // complain
 console.log(account)

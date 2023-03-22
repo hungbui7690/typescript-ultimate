@@ -15,5 +15,3 @@ class Account {
 let account = new Account(1, 'bic', 123);
 account.id = 10;
 console.log(account);
-account.deposit(123);
-console.log(account);
