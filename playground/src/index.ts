@@ -1,11 +1,14 @@
 /*
-  Generic Functions P1
+  Generic Functions P2
 
 */
 
-function wrapInArray(value: number) {
+// use generic type
+function wrapInArray<T>(value: T) {
   return [value]
 }
 
-// with this implementation, we cannot pass the string > since the declared type is number
-let numbers = wrapInArray(1)
+// with this implementation, we can use any type we want > hover
+let numbers1 = wrapInArray(1)
+let numbers2 = wrapInArray('1')
+let numbers3 = wrapInArray(true)
