@@ -1,5 +1,5 @@
 /*
-  Extending Generic Classes P4
+  Extending Generic Classes P5
 
 */
 
@@ -16,12 +16,18 @@ class Store<T> {
   }
 }
 
-///////////////////////////////////////
-
-// Scenario 1: need to pass the type for CompressibleStore as well
 class CompressibleStore<T> extends Store<T> {
   compress() {}
 }
 
-const store = new CompressibleStore<Product>() // no error now
-// store. // add() + compress()
+const store = new CompressibleStore<Product>()
+store.compress()
+
+///////////////////////////////////////
+
+// Scenario 2: since _items is private > we cannot access it
+class SearchableStore<T> extends Store<T> {
+  find(name: string): T | undefined {
+    return this._items
+  }
+}
