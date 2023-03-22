@@ -1,14 +1,17 @@
 /*
-  Parameterized Decorators P3
+  Decorator Composition
+  - we can see that decorators are applied in reversed order if we have multiple decorators
+    > the ideas come from the math
+      + if we have f(g(x)) 
+        > g(x) need to be executed first and return result 
+        > then f(result) will be executed
 
 */
 
-// create type alias
 type ComponentOptions = {
   selector: string
 }
 
-// use type here
 function Component(options: ComponentOptions) {
   return (constructor: Function) => {
     console.log('Component Decorator Called !!')
@@ -21,6 +24,13 @@ function Component(options: ComponentOptions) {
   }
 }
 
-// argument
+// create new decorator
+function Pipe(constructor: Function) {
+  console.log('Pipe Decorator Called !!')
+  constructor.prototype.pipe = true
+}
+
+// (***) this class has 2 decorators > when we run, we will see @Pipe will run first (explain above)
 @Component({ selector: '#my-profile' })
+@Pipe
 class ProfileComponent {}
