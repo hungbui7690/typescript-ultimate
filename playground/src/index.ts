@@ -1,10 +1,10 @@
 /*
-  Static Members P4
+  Static Members P5
 
 */
 
 class Ride {
-  static activeRides: number = 0
+  private static activeRides: number = 0 // use private keyword
 
   start() {
     Ride.activeRides++
@@ -20,6 +20,4 @@ ride1.start()
 let ride2 = new Ride()
 ride2.start()
 
-// problem: now we can modify it from outside
-Ride.activeRides = 100
-console.log(Ride.activeRides)
+Ride.activeRides = 100 // complain > we cannot set activeRides outside of class > but we cannot get the value of activeRides from outside

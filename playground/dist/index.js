@@ -13,4 +13,3 @@ ride1.start();
 let ride2 = new Ride();
 ride2.start();
 Ride.activeRides = 100;
-console.log(Ride.activeRides);
