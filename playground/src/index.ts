@@ -1,15 +1,11 @@
 /*
-  Generic Functions P4
+  Generic Interfaces P1
+  - Assume that we have 2 routes: 
+    + https://mywebsite.com/users
+    + https://mywebsite.com/products
 
 */
 
-// make it as static
-class ArrayUtils {
-  static wrapInArray<T>(value: T) {
-    return [value]
-  }
+interface Result<T> {
+  data: T
 }
-
-// call static methods
-let numbers = ArrayUtils.wrapInArray(1)
-let strings = ArrayUtils.wrapInArray('1')
