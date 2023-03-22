@@ -1,10 +1,10 @@
 /*
-  The any Type P3
-  - we also can turn on this 
-    > "noImplicitAny": false
-    > we don't nee to have any type > though error is gone, this is not recommended since it violate the idea of TS
+  Array P1
+
 */
 
-function render(document) {
-  console.log(document)
-}
+// this is valid in TS
+const arr = [1, 2, '3']
+
+// this is not valid
+const nums: number[] = [1, 2, '3']
