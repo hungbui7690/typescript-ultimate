@@ -1,7 +1,7 @@
 "use strict";
 /*
-  Type Assertions P2
+  Type Assertions P3
 
 */
-let phone = document.getElementById('phone');
-// phone.value // no .value property since TS does not know "phone" is an HTMLInputElement
+let phone = document.getElementById('phone'); // type assertion here
+console.log(phone.value); // now we can use .value
