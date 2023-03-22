@@ -1,11 +1,9 @@
 "use strict";
 /*
-  The unknown Type P1
+  The unknown Type P2
 
 */
-// we learned before > avoid this as much as possible
-let x;
-// the problem with any type is we can call any methods that we want, though they don't exist
+// we use unknown type > complain
 function render(document) {
     document.fly();
     document.walk();
