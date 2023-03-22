@@ -1,5 +1,7 @@
 /*
-  Method Overriding P4
+  Method Overriding P5
+  - "noImplicitOverride": true
+    > we should turn this on
   
 */
 
@@ -27,7 +29,7 @@ class Student extends Person {
 //////////////////////////////////////
 
 class Teacher extends Person {
-  // (***) if we remove the override keyword, it still works > but it will disconnect with the parent class
+  // (***) if we don't have override keyword > err
   get fullName() {
     return `Professor ${super.fullName}`
   }
