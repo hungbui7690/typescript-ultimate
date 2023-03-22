@@ -1,9 +1,7 @@
 /*
-  Wildcard Imports
+  Re-Exporting P1
+  - create shape/index.ts
 
 */
 
-// wild card import
-import * as Shapes from './shapes'
-
-Shapes.Circle
+import { Circle, Square } from './shapes'
