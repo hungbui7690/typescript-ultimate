@@ -22,7 +22,7 @@ class Student extends Person {
 }
 class Teacher extends Person {
     get fullName() {
-        return `Professor ${this.firstName} ${this.lastName}`;
+        return `Professor ${super.fullName}`;
     }
 }
 let teacher = new Teacher('John', 'Smith');

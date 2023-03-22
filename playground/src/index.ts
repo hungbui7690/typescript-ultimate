@@ -1,6 +1,6 @@
 /*
-  Method Overriding P2
-    
+  Method Overriding P3
+  - alternative way to call parent method
   
 */
 
@@ -28,9 +28,9 @@ class Student extends Person {
 //////////////////////////////////////
 
 class Teacher extends Person {
-  // (***)
+  // alternative way
   override get fullName() {
-    return `Professor ${this.firstName} ${this.lastName}`
+    return `Professor ${super.fullName}`
   }
 }
 
