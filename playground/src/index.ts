@@ -1,12 +1,16 @@
 /*
-  Method Decorators P3
+  Method Decorators P4
 
 */
 
 function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
-  // (***)
+  const original = descriptor.value
+
   descriptor.value = function () {
-    console.log(`New Implementation !!!!`)
+    // (***) if we want to run the old method implementation here
+    console.log('Before')
+    // original. // type === any
+    console.log('After')
   }
 }
 

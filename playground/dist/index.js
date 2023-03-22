@@ -1,6 +1,6 @@
 "use strict";
 /*
-  Method Decorators P3
+  Method Decorators P4
 
 */
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,9 +10,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 function Log(target, methodName, descriptor) {
-    // (***)
+    const original = descriptor.value;
     descriptor.value = function () {
-        console.log(`New Implementation !!!!`);
+        // (***) if we want to run the old method implementation here
+        console.log('Before');
+        // original. // type === any
+        console.log('After');
     };
 }
 class Person {
