@@ -1,16 +1,21 @@
 /*
-  Static Members P5
+  Static Members P6
 
 */
 
 class Ride {
-  private static activeRides: number = 0 // use private keyword
+  private static _activeRides: number = 0
 
   start() {
-    Ride.activeRides++
+    Ride._activeRides++
   }
   stop() {
-    Ride.activeRides--
+    Ride._activeRides--
+  }
+
+  // getter
+  get activeRides() {
+    return Ride._activeRides
   }
 }
 
@@ -20,4 +25,4 @@ ride1.start()
 let ride2 = new Ride()
 ride2.start()
 
-Ride.activeRides = 100 // complain > we cannot set activeRides outside of class > but we cannot get the value of activeRides from outside
+console.log(Ride.activeRides) // (***) still not work

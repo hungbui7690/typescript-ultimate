@@ -1,15 +1,18 @@
 "use strict";
 class Ride {
     start() {
-        Ride.activeRides++;
+        Ride._activeRides++;
     }
     stop() {
-        Ride.activeRides--;
+        Ride._activeRides--;
+    }
+    get activeRides() {
+        return Ride._activeRides;
     }
 }
-Ride.activeRides = 0;
+Ride._activeRides = 0;
 let ride1 = new Ride();
 ride1.start();
 let ride2 = new Ride();
 ride2.start();
-Ride.activeRides = 100;
+console.log(Ride.activeRides);
