@@ -1,14 +1,11 @@
 /*
-  Describing Types using JSDoc P1
-  - js file
-    > use multiple lines comment > generate the JSDoc for us
-    > /** enter */
+  Describing Types using JSDoc P2
+  - we also can provide description in JSDoc
 
-// * @param {number} income
-// * @returns {number}
-// if we compile > show error
+*/
 
+// after add description > hover to see
 import { calculateTax } from './tax'
 
-let tax = calculateTax()
+let tax = calculateTax(10_000) // supply arg
 console.log(tax)

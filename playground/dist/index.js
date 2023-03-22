@@ -1,12 +1,9 @@
 "use strict";
 /*
-  Describing Types using JSDoc
-  - js file
-    > use multiple lines comment > generate the JSDoc for us
-    > /** enter */
+  Describing Types using JSDoc P2
+
+*/
 Object.defineProperty(exports, "__esModule", { value: true });
-// * @param {number} income
-// * @returns {number}
 const tax_1 = require("./tax");
-let tax = (0, tax_1.calculateTax)();
+let tax = (0, tax_1.calculateTax)(10000); // supply arg
 console.log(tax);
