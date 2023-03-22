@@ -1,28 +1,12 @@
 /*
-  Generic Interfaces P4
+  Generic Constraints P1
 
 */
 
-interface Result<T> {
-  data: T | null
-  error: string | null
+function echo<T>(value: T): T {
+  return value
 }
 
-function fetch<T>(url: string): Result<T> {
-  return { data: null, error: null }
-}
-
-////////////////////////////
-
-interface User {
-  username: string
-}
-interface Product {
-  title: string
-}
-
-let users = fetch<User>('url')
-users.data?.username
-
-let products = fetch<Product>('url')
-products.data?.title
+// what if we want to limit the type that we pass in
+const result1 = echo('1')
+const result2 = echo(1)
