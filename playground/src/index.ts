@@ -1,10 +1,14 @@
 /*
-  Nullable Types P1
-  - "strictNullChecks": true > default
+  Nullable Types P2
+
 */
 
-function greet(name: string) {
-  console.log(name.toUpperCase())
+// in case we want to have null value > add to the type
+function greet(name: string | null) {
+  if (name) console.log(name.toUpperCase())
+  else {
+    console.log('null')
+  }
 }
 
 greet(null) // in JS, we can use this > and our program will crashed
