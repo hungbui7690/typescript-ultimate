@@ -1,21 +1,19 @@
 /*
-  Class Decorators P1
-  - convention is to used "constructor"
-  - type = Function
+  Class Decorators P2
+  - this is how we implement decorator using class
 
 */
 
-// (***)
-function Component(constructor: Function) {
-  console.log('Component Decorator Called !!')
-
-  // add new members in the prototype of the class that has decorator
-  constructor.prototype.uniqueID = Date.now()
-  constructor.prototype.insertInDOM = () => {
-    console.log('Inserting the component in the DOM')
+// this is without using decorator
+class Component {
+  constructor() {
+    console.log('Component Decorator is called')
   }
+  insertInDOM() {}
 }
 
-// based on what we did above, this class should have 2 new members that we defined above
-@Component
-class ProfileComponent {}
+// extends
+class ProfileComponent extends Component {}
+
+// instantiate
+const profileComponent = new ProfileComponent()
