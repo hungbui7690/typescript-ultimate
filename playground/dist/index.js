@@ -9,6 +9,11 @@ class Account {
     get balance() {
         return this._balance;
     }
+    set balance(value) {
+        if (value <= 0)
+            throw new Error('Invalid Value!!!');
+        this._balance = value;
+    }
     deposit(amount) {
         if (amount <= 0)
             throw new Error('Invalid Amount!!');
@@ -17,4 +22,5 @@ class Account {
     calculateTax() { }
 }
 let account = new Account(1, 'bic', 123);
+account.balance = 999;
 console.log(account.balance);

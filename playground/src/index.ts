@@ -1,6 +1,5 @@
 /*
-  Getters & Setters P1
-  - though we have getBalance() as getter, but we don't want getter as a function, but a property
+  Getters & Setters P2
 
 */
 
@@ -12,9 +11,14 @@ class Account {
     public nickName?: string
   ) {}
 
-  // (***) getter
   get balance(): number {
     return this._balance
+  }
+
+  // (***)
+  set balance(value: number) {
+    if (value <= 0) throw new Error('Invalid Value!!!')
+    this._balance = value
   }
 
   deposit(amount: number): void {
@@ -26,4 +30,5 @@ class Account {
 
 let account = new Account(1, 'bic', 123)
 
-console.log(account.balance) // (***)
+account.balance = 999 // (***)
+console.log(account.balance)
