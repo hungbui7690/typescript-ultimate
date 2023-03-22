@@ -1,5 +1,5 @@
 /*
-  Extending Generic Classes P7
+  Extending Generic Classes P8
 
 */
 
@@ -23,11 +23,17 @@ class CompressibleStore<T> extends Store<T> {
 const store = new CompressibleStore<Product>()
 store.compress()
 
-///////////////////////////////////////
-
-// Scenario 2: <T extends { name: string }>
 class SearchableStore<T extends { name: string }> extends Store<T> {
   find(name: string): T | undefined {
     return this._items.find((item) => item.name === name)
+  }
+}
+
+///////////////////////////////////////
+
+// Scenario 3: fix the generic type parameter
+class ProductStore extends Store<Product> {
+  filterByCategory(category: string): Product[] {
+    return []
   }
 }
