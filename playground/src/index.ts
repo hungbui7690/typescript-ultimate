@@ -1,13 +1,15 @@
 /*
-  The never Type P1
+  The never Type P2
+  - "allowUnreachableCode": false
 
 */
 
-function processEvent() {
+// return type = never
+function processEvent(): never {
   while (true) {
     // read msg from queue
   }
 }
 
 processEvent()
-console.log('Hello World')
+console.log('Hello World') // because the previous line never return > this line is never be executed
