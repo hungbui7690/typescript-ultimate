@@ -1,13 +1,16 @@
 /*
-  Functions P3
+  Functions P4
 
 */
 
-// "noUnusedLocals": true
-// with all these settings, we caught all errors
-function calculateTax4(income: number, taxYear: number): number {
-  let x
-  if (income < 50_000) return income * 1.2
+// final version
+function calculateTax(income: number, taxYear: number): number {
+  if (taxYear < 2022) {
+    return income * 1.2
+  }
 
   return income * 1.3
 }
+
+const tax = calculateTax(40_000, 2023)
+console.log(tax)
