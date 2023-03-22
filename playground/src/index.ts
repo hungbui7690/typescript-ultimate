@@ -1,12 +1,16 @@
 /*
-  Understand the Problem P2
+  Understand the Problem P3
 
 */
 
 class KeyValuePair {
-  // Solution 1: use any type (not recommended)
-  constructor(public key: any, public value: string) {}
+  constructor(public key: number, public value: string) {}
 }
 
-let pair = new KeyValuePair(1, 'Apple')
-// pair.key. // no methods are shown since type is any > if we change type to string > show string methods
+// solution 2: create a duplicated class with string as key
+class StringKeyValuePair {
+  constructor(public key: string, public value: string) {}
+}
+
+// we violate the DRY principle
+let pair = new StringKeyValuePair('1', 'Apple')
