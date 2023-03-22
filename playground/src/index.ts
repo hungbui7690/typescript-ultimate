@@ -1,8 +1,5 @@
 /*
-  Polymorphism P2
-
-  (***) Open Closed Principle
-    - classes should be open for extension and closed for modification
+  Private vs Protected Members P1
 
 */
 
@@ -12,7 +9,9 @@ class Person {
   get fullName() {
     return this.firstName + ' ' + this.lastName
   }
-  walk() {
+
+  // private method
+  private walk() {
     console.log('Walking')
   }
 }
@@ -23,6 +22,7 @@ class Student extends Person {
   }
 
   takeTest() {
+    this.walk() // because private > we can not use in child class
     console.log('Taking a Test')
   }
 }
