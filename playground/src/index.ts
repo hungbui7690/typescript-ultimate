@@ -1,11 +1,8 @@
 /*
-  Creating Declaration Files P2
-  - create sayHello() in tax.js 
-    > we did not declare the type definition for that function > will be invisible to ts compiler > right now, we cannot import
-    
+  Using Definitely Typed Declaration Files P1
+  - use with 3rd party libs
+  - npm install lodash
+
 */
 
-import { calculateTax, sayHello } from './tax'
-
-let tax = calculateTax(10_000)
-console.log(tax)
+import * as _ from 'lodash' // err because lodash is pure 100% JS code > this is the time we need to use the most popular Github Repo for Types: DefinitelyTyped
