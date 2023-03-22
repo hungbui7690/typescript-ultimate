@@ -1,4 +1,4 @@
 "use strict";
-let employee = { id: 1, name: 'Joe' };
+let employee = { id: 1 };
 employee.name = 'John';
 //# sourceMappingURL=index.js.map

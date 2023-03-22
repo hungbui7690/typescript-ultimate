@@ -1,8 +1,11 @@
 /*
-  Objects P2
+  Objects P3
+
+  (***) though TS supports optional, we shouldn't use it
+    > the only place where we can use optional is un-important property
 
 */
 
-// create shape for object
-let employee: { id: number; name: string } = { id: 1, name: 'Joe' }
-employee.name = 'John' // satisfy the shape > ok
+// or we can set the property to optional
+let employee: { id: number; name?: string } = { id: 1 }
+employee.name = 'John'
