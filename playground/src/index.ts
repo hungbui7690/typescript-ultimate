@@ -1,5 +1,5 @@
 /*
-  Type Mapping P3
+  Type Mapping P4
 
 */
 
@@ -8,13 +8,13 @@ interface Product {
   price: number
 }
 
-// (***) Solution 2: add readonly
-type ReadOnlyProduct = {
-  readonly [Property in keyof Product]: Product[Property]
+// (***) use Generic Type
+type ReadOnly<T> = {
+  readonly [K in keyof Product]: Product[K]
 }
 
-// (***) use ReadOnlyProduct as type
-let product: ReadOnlyProduct = {
+// (***)
+let product: ReadOnly<Product> = {
   name: 'Soap',
   price: 10,
 }
