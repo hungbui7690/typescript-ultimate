@@ -1,5 +1,5 @@
 /*
-  Extending Generic Classes P3
+  Extending Generic Classes P4
 
 */
 
@@ -18,8 +18,10 @@ class Store<T> {
 
 ///////////////////////////////////////
 
-// Scenario 1: err
-class CompressibleStore extends Store<T> {}
+// Scenario 1: need to pass the type for CompressibleStore as well
+class CompressibleStore<T> extends Store<T> {
+  compress() {}
+}
 
-// if we create an instance like this, we don't have a chance to put the type
-new CompressibleStore<Product>()
+const store = new CompressibleStore<Product>() // no error now
+// store. // add() + compress()
