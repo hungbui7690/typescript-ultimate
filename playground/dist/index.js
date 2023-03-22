@@ -1,9 +1,6 @@
 "use strict";
 /*
-  Type Checking JS Code P2
-  - "checkJs": true
-
-  > recompile and see what we get
+  Type Checking JS Code P3
 
 */
 Object.defineProperty(exports, "__esModule", { value: true });
