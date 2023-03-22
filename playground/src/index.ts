@@ -1,8 +1,10 @@
 /*
-  Method Overriding P5
-  - "noImplicitOverride": true
-    > we should turn this on
+  Polymorphism P1
+  - Poly: many
+  - Morph: form
   
+  > if we don't have Polymorphism, we need to use if/else or switch/case for each type of instances
+
 */
 
 class Person {
@@ -26,14 +28,21 @@ class Student extends Person {
   }
 }
 
-//////////////////////////////////////
-
 class Teacher extends Person {
-  // (***) if we don't have override keyword > err
-  get fullName() {
+  override get fullName() {
     return `Professor ${super.fullName}`
   }
 }
 
-let teacher = new Teacher('John', 'Smith')
-console.log(teacher.fullName)
+//////////////////////////////////////
+
+// (***) think about this > why we use Person[]
+function printNames(people: Person[]) {
+  for (let person of people) {
+    console.log(person.fullName) // depends on the type of each instance, it will log out different inputs
+  }
+}
+
+// first iteration: take the form of Student
+// second iteration: take the form of Teacher
+printNames([new Student(1, 'John', 'Smith'), new Teacher('Joe', 'Doe')])
