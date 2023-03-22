@@ -1,5 +1,6 @@
 /*
-  Creating Objects P1
+  Creating Objects P2
+  - constructor does not have any return type, since it always return the instance of that class
 
 */
 
@@ -22,4 +23,9 @@ class Account {
 }
 
 let account = new Account(1, 'bic', 123)
-// account.  // only show methods and properties that are in this class
+
+account.deposit(100) // (***)
+console.log(account.balance) // 223
+console.log(account)
+
+console.log(account instanceof Account) // true

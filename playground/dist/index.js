@@ -12,3 +12,7 @@ class Account {
     }
 }
 let account = new Account(1, 'bic', 123);
+account.deposit(100);
+console.log(account.balance);
+console.log(account);
+console.log(account instanceof Account);
