@@ -1,15 +1,15 @@
 /*
-  Generic Functions P3
+  Generic Functions P4
 
 */
 
-// wrap in a class
+// make it as static
 class ArrayUtils {
-  wrapInArray<T>(value: T) {
+  static wrapInArray<T>(value: T) {
     return [value]
   }
 }
 
-let utils = new ArrayUtils()
-let numbers = utils.wrapInArray(1)
-let strings = utils.wrapInArray('1')
+// call static methods
+let numbers = ArrayUtils.wrapInArray(1)
+let strings = ArrayUtils.wrapInArray('1')
