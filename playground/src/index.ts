@@ -1,23 +1,15 @@
 /*
-  Enums P1
-  
-  */
+  Enums P2
+  - check JS code   
+*/
 
-// wa normally use constant for these things
-const SMALL = 1
-const MEDIUM = 2
-const LARGE = 3
-
-// we also use enums to do this > Pascal case + no = sign
+// if we use string as values, we need to define the values for all fields
 enum Size {
-  SMALL = 0,
-  MEDIUM, // = 1
-  LARGE, // = 2 => auto increment
+  SMALL = 's',
+  MEDIUM = 'm',
+  LARGE = 'l',
 }
 
-enum shippingStatus {
-  PENDING = 2,
-  SHIPPED,
-  DELIVERED,
-  RETURNED, // = 5
-}
+// how to use enum
+let mySize: Size = Size.SMALL
+console.log(mySize)
