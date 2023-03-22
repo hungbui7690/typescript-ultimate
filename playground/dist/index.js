@@ -3,14 +3,14 @@ class Account {
     constructor(id, owner, balance) {
         this.id = id;
         this.owner = owner;
-        this.balance = balance;
+        this._balance = balance;
     }
     deposit(amount) {
         if (amount <= 0)
             throw new Error('Invalid Amount!!');
-        this.balance += amount;
+        this._balance += amount;
     }
 }
 let account = new Account(1, 'bic', 123);
-account.balance = 100000;
+account._balance = 100000;
 console.log(account);
