@@ -1,7 +1,8 @@
 "use strict";
 /*
-  Type Assertions P3
+  Type Assertions P4
 
 */
-let phone = document.getElementById('phone'); // type assertion here
-console.log(phone.value); // now we can use .value
+// alternative way to assert > generic
+let phone = document.getElementById('phone');
+phone.value;

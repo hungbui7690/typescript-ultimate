@@ -1,7 +1,8 @@
 /*
-  Type Assertions P3
+  Type Assertions P4
 
 */
 
-let phone = document.getElementById('phone') as HTMLInputElement // type assertion here
-console.log(phone.value) // now we can use .value
+// alternative way to assert > generic
+let phone = <HTMLInputElement>document.getElementById('phone')
+phone.value
