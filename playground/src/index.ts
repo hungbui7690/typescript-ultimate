@@ -1,10 +1,11 @@
 /*
-  The unknown Type P2
+  The unknown Type P3
 
 */
 
-// we use unknown type > complain
+// we can use type narrowing to narrow down the type
 function render(document: unknown) {
-  document.fly()
-  document.walk()
+  if (typeof document === 'string') document.toUpperCase()
+
+  if (typeof document === 'number') document.toFixed()
 }
