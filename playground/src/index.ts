@@ -1,12 +1,28 @@
 /*
-  Parameter Decorators P1
+  Parameter Decorators P2
   
 */
 
-// for parameter decorator > we need to have parameterIndex + methodName
-function Watch(target: any, methodName: string, parameterIndex: number) {}
+// (1)
+type WatchedParameter = {
+  methodName: string
+  parameterIndex: number
+}
+
+// (2)
+const watchedParameters: WatchedParameter[] = []
+
+function Watch(target: any, methodName: string, parameterIndex: number) {
+  // (3)
+  watchedParameters.push({
+    methodName,
+    parameterIndex,
+  })
+}
 
 class Vehicle {
-  // param decorator
   move(@Watch speed: number) {}
 }
+
+// (4)
+console.log(watchedParameters)

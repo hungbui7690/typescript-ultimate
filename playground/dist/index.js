@@ -1,6 +1,6 @@
 "use strict";
 /*
-  Parameter Decorators P1
+  Parameter Decorators P2
   
 */
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -12,12 +12,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-// for parameter decorator > we need to have parameterIndex + methodName
-function Watch(target, methodName, parameterIndex) { }
+// (2)
+const watchedParameters = [];
+function Watch(target, methodName, parameterIndex) {
+    // (3)
+    watchedParameters.push({
+        methodName,
+        parameterIndex,
+    });
+}
 class Vehicle {
-    // param decorator
     move(speed) { }
 }
 __decorate([
     __param(0, Watch)
 ], Vehicle.prototype, "move", null);
+// (4)
+console.log(watchedParameters);
