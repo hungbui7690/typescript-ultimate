@@ -1,20 +1,16 @@
 /*
-  Generic Classes P1
-  - T: template class > from C++
-    > can use G or T
-
-  > with the implementation below, we don't need to use any type, and don't duplicate the code
+  Generic Classes P2
 
 */
 
-// we need to add type T in 2 places
-class KeyValuePair<T> {
-  constructor(public key: T, public value: string) {}
+// <K, V>
+class KeyValuePair<K, V> {
+  constructor(public key: K, public value: V) {}
 }
 
 // because the type is generic > we can use any type we want
-let pair1 = new KeyValuePair<string>('1', 'Apple')
-let pair2 = new KeyValuePair<number>(1, 'Apple')
-let pair3 = new KeyValuePair<boolean>(true, 'Apple')
+let pair1 = new KeyValuePair<string, string>('1', 'Apple')
+let pair2 = new KeyValuePair<number, boolean>(1, true)
 
-// pair1.key. // now, it will show string methods
+// (***) if we don't supply the type, TS will infers it if we initialize
+let pairX = new KeyValuePair('1', 'orange')
