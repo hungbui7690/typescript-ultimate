@@ -1,8 +1,8 @@
 /*
-  Objects P1
+  Objects P2
 
 */
 
-// in JS, object can be easily changed > but in TS, invalid
-let employee = { id: 1 }
-employee.name = 'Joe'
+// create shape for object
+let employee: { id: number; name: string } = { id: 1, name: 'Joe' }
+employee.name = 'John' // satisfy the shape > ok
