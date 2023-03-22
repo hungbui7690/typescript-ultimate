@@ -1,13 +1,10 @@
 /*
-  Literal Types
-  - literal: specific or exact type 
-
+  Nullable Types P1
+  - "strictNullChecks": true > default
 */
 
-// if we want quantity to have the value of 50 or 100, nothing more
-type Quantity = 50 | 100
+function greet(name: string) {
+  console.log(name.toUpperCase())
+}
 
-let quantity: Quantity = 50
-
-// we can also use string
-type Metric = 'cm' | 'mm'
+greet(null) // in JS, we can use this > and our program will crashed
