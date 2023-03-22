@@ -12,4 +12,5 @@ class Account {
     }
 }
 let account = new Account(1, 'bic', 123);
+account.balance = 100000;
 console.log(account);
