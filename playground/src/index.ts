@@ -1,11 +1,9 @@
 /*
-  Default Export
-  - sometimes, when we want to export a single thing > use Default Export
-  - create storage.ts
+  Wildcard Imports
 
 */
 
-import { Circle as MyCircle } from './shapes'
-import Store, { Format } from './storage' // default + named import
+// wild card import
+import * as Shapes from './shapes'
 
-const store = new Store()
+Shapes.Circle

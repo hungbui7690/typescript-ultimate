@@ -1,7 +1,5 @@
-// default export
 export default class Store {}
 
-// named export
 export enum Format {
   Raw,
   Compressed,
