@@ -1,5 +1,5 @@
 /*
-  Extending Generic Classes P8
+  The "keyof" Operator P1
 
 */
 
@@ -14,26 +14,15 @@ class Store<T> {
   add(item: T): void {
     this._items.push(item)
   }
-}
 
-class CompressibleStore<T> extends Store<T> {
-  compress() {}
-}
-
-const store = new CompressibleStore<Product>()
-store.compress()
-
-class SearchableStore<T extends { name: string }> extends Store<T> {
-  find(name: string): T | undefined {
-    return this._items.find((item) => item.name === name)
+  // (***)
+  find(property: string, value: unknown): T | undefined {
+    return this._items.find((item) => item[property] === value)
   }
 }
 
-///////////////////////////////////////
-
-// Scenario 3: fix the generic type parameter
-class ProductStore extends Store<Product> {
-  filterByCategory(category: string): Product[] {
-    return []
-  }
-}
+let store = new Store<Product>()
+store.add({ name: 'Soap', price: 10 })
+store.find('name', 'Soap')
+store.find('price', 10)
+store.find('noneExistingProperty', 1) // this line will make our app crashed
