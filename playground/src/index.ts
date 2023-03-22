@@ -1,12 +1,13 @@
 /*
-  Exporting & Importing P1
+  Exporting & Importing P2
+  - create shapes.ts
 
 */
 
-class Circle {
-  constructor(public radius: number) {}
-}
+// import and set alias
+import { Circle as MyCircle } from './shapes'
 
-class Square {
-  constructor(public width: number) {}
-}
+let circle = new MyCircle(1)
+console.log(circle.radius)
+
+let square = new Square(1) // since we did not import > place cursor on "Square", then Ctrl + .
