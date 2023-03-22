@@ -1,15 +1,14 @@
 /*
-  Enums P2
-  - check JS code   
+  Enums P3
+
 */
 
-// if we use string as values, we need to define the values for all fields
-enum Size {
+// if we use "const" > the code will be optimized
+const enum Size {
   SMALL = 's',
   MEDIUM = 'm',
   LARGE = 'l',
 }
 
-// how to use enum
 let mySize: Size = Size.SMALL
 console.log(mySize)
