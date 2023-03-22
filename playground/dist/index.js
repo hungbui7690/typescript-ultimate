@@ -1,8 +1,12 @@
 "use strict";
 /*
-  Type Assertions P4
+  The unknown Type P1
 
 */
-// alternative way to assert > generic
-let phone = document.getElementById('phone');
-phone.value;
+// we learned before > avoid this as much as possible
+let x;
+// the problem with any type is we can call any methods that we want, though they don't exist
+function render(document) {
+    document.fly();
+    document.walk();
+}
