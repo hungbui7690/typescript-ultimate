@@ -1,14 +1,19 @@
 /*
-  Enums P3
-
+  Functions P1
+  
 */
 
-// if we use "const" > the code will be optimized
-const enum Size {
-  SMALL = 's',
-  MEDIUM = 'm',
-  LARGE = 'l',
+function calculateTax1(income) {}
+
+// return type = void = default
+function calculateTax2(income: number) {}
+
+// inference > return type = number
+function calculateTax3(income: number) {
+  return 0
 }
 
-let mySize: Size = Size.SMALL
-console.log(mySize)
+// explicitly set the return type > this's good since we can annotate return type for API that people are gonna use
+function calculateTax4(income: number): number {
+  return 0
+}
