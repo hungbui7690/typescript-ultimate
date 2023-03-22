@@ -6,7 +6,7 @@ class Account {
         this._balance = _balance;
         this.nickName = nickName;
     }
-    getBalance() {
+    get balance() {
         return this._balance;
     }
     deposit(amount) {
@@ -17,4 +17,4 @@ class Account {
     calculateTax() { }
 }
 let account = new Account(1, 'bic', 123);
-console.log(account);
+console.log(account.balance);
