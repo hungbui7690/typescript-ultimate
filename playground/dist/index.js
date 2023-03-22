@@ -1,6 +1,6 @@
 "use strict";
 /*
-  Method Decorators P8
+  Method Decorators P9
 
 */
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,10 +11,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 function Log(target, methodName, descriptor) {
     const original = descriptor.value;
-    // use spread operator + set type = any
-    descriptor.value = function (...args) {
+    // (***) remember DON'T use ARROW FN here > since we use "this" keyword
+    descriptor.value = (...args) => {
         console.log('Before');
-        original.call(this, ...args); // use here
+        original.call(this, ...args);
         console.log('After');
     };
 }

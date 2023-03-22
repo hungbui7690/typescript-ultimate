@@ -1,15 +1,15 @@
 /*
-  Method Decorators P8
+  Method Decorators P9
 
 */
 
 function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
   const original = descriptor.value as Function
 
-  // use spread operator + set type = any
-  descriptor.value = function (...args: any) {
+  // (***) remember DON'T use ARROW FN here > since we use "this" keyword
+  descriptor.value = (...args: any) => {
     console.log('Before')
-    original.call(this, ...args) // use here
+    original.call(this, ...args)
     console.log('After')
   }
 }
