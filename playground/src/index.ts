@@ -1,19 +1,10 @@
 /*
   Functions P1
-  
+  - "noUnusedParameters": true
+
 */
 
-function calculateTax1(income) {}
-
-// return type = void = default
-function calculateTax2(income: number) {}
-
-// inference > return type = number
-function calculateTax3(income: number) {
-  return 0
-}
-
-// explicitly set the return type > this's good since we can annotate return type for API that people are gonna use
+// reason of err: because if condition is true, then return # > but condition is false, then we don't return anything === return undefined
 function calculateTax4(income: number): number {
-  return 0
+  if (income < 50_000) return income * 1.2
 }
