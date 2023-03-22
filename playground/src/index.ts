@@ -1,13 +1,11 @@
 /*
-  Generic Constraints P2
+  Generic Constraints P3
 
 */
 
-// using extends to limit the types
-function echo<T extends string | number>(value: T): T {
+// shape of object
+function echo<T extends { name: string }>(value: T): T {
   return value
 }
 
-const result1 = echo('1')
-const result2 = echo(1)
-const result3 = echo(true) // only string | number
+const result3 = echo({ name: 'joe' })
