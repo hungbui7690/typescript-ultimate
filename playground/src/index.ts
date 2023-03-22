@@ -1,18 +1,17 @@
 /*
-  Type Mapping P1
+  Type Mapping P2
 
 */
 
-// what if in our app, somewhere else we need read-only property
 interface Product {
   name: string
   price: number
 }
 
-// (***) Solution 1: duplication
-interface ReadOnlyProduct {
-  readonly name: string
-  readonly price: number
+// (***) Solution 2: Type Mapping > type alias > use Index Signature + keyof
+// "Property" === T === K === generic type
+type ReadOnlyProduct = {
+  [Property in keyof Product]: Product[Property]
 }
 
 class Store<T> {
