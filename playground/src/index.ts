@@ -1,14 +1,19 @@
 /*
-  Parameterized Decorators P2
+  Parameterized Decorators P3
 
 */
 
-function Component(value: number) {
-  // arrow function
+// create type alias
+type ComponentOptions = {
+  selector: string
+}
+
+// use type here
+function Component(options: ComponentOptions) {
   return (constructor: Function) => {
     console.log('Component Decorator Called !!')
 
-    constructor.prototype.options = value // use parameter here
+    constructor.prototype.options = options // use parameter here
     constructor.prototype.uniqueID = Date.now()
     constructor.prototype.insertInDOM = () => {
       console.log('Inserting the component in the DOM')
@@ -16,5 +21,6 @@ function Component(value: number) {
   }
 }
 
-@Component(1)
+// argument
+@Component({ selector: '#my-profile' })
 class ProfileComponent {}
