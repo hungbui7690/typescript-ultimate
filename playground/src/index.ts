@@ -1,10 +1,15 @@
 /*
-  Union Types P1
+  Union Types P2
 
 */
 
+// type narrowing
 function kgToLbs(weight: number | string) {
-  // weight. // now, it just shows the methods that are in common between number and string
+  if (typeof weight === 'string') {
+    weight // string
+  } else {
+    weight // number
+  }
 }
 
 kgToLbs(10)
