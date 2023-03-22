@@ -1,38 +1,17 @@
 "use strict";
 /*
-  Decorator Composition
-  - we can see that decorators are applied in reversed order if we have multiple decorators
-    > the ideas come from the math
-      + if we have f(g(x))
-        > g(x) need to be executed first and return result
-        > then f(result) will be executed
+  Method Decorators P1
+  > https://www.typescriptlang.org/docs/handbook/decorators.html
+    > The expression for the method decorator will be called as a function at runtime, with the following three arguments:
+      + Either the constructor function of the class for a static member, or the prototype of the class for an instance member.
+      + The name of the member.
+      + The Property Descriptor for the member.
 
 */
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-function Component(options) {
-    return (constructor) => {
-        console.log('Component Decorator Called !!');
-        constructor.prototype.options = options; // use parameter here
-        constructor.prototype.uniqueID = Date.now();
-        constructor.prototype.insertInDOM = () => {
-            console.log('Inserting the component in the DOM');
-        };
+// example from the docs (link above)
+function enumerable(value) {
+    return function (target, propertyKey, descriptor // (***)
+    ) {
+        descriptor.enumerable = value;
     };
 }
-// create new decorator
-function Pipe(constructor) {
-    console.log('Pipe Decorator Called !!');
-    constructor.prototype.pipe = true;
-}
-// (***) this class has 2 decorators > when we run, we will see @Pipe will run first (explain above)
-let ProfileComponent = class ProfileComponent {
-};
-ProfileComponent = __decorate([
-    Component({ selector: '#my-profile' }),
-    Pipe
-], ProfileComponent);
