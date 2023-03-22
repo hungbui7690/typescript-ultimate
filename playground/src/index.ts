@@ -1,14 +1,11 @@
 /*
-  Creating Declaration Files P1
-  - other than JSDoc, this is another way to provide types if we don't want to add comments to JS code like we did
-
-  - create tax.d.ts
-    > d === decoration
-    > export declare function calculateTax(income: number): number > remember to export
-
+  Creating Declaration Files P2
+  - create sayHello() in tax.js 
+    > we did not declare the type definition for that function > will be invisible to ts compiler > right now, we cannot import
+    
 */
 
-import { calculateTax } from './tax'
+import { calculateTax, sayHello } from './tax'
 
 let tax = calculateTax(10_000)
 console.log(tax)
