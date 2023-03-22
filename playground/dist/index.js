@@ -1,18 +1,27 @@
 "use strict";
 /*
-  Class Decorators P2
-  - this is how we implement decorator using class
+  Parameterized Decorators P1
 
 */
-// this is without using decorator
-class Component {
-    constructor() {
-        console.log('Component Decorator is called');
-    }
-    insertInDOM() { }
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+// we want to add parameter > need to return function
+function Component(value) {
+    return function (constructor) {
+        console.log('Component Decorator Called !!');
+        constructor.prototype.uniqueID = Date.now();
+        constructor.prototype.insertInDOM = () => {
+            console.log('Inserting the component in the DOM');
+        };
+    };
 }
-// extends
-class ProfileComponent extends Component {
-}
-// instantiate
-const profileComponent = new ProfileComponent();
+// argument
+let ProfileComponent = class ProfileComponent {
+};
+ProfileComponent = __decorate([
+    Component(1)
+], ProfileComponent);

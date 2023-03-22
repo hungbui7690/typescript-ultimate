@@ -1,19 +1,20 @@
 /*
-  Class Decorators P2
-  - this is how we implement decorator using class
+  Parameterized Decorators P1
 
 */
 
-// this is without using decorator
-class Component {
-  constructor() {
-    console.log('Component Decorator is called')
+// we want to add parameter > need to return function
+function Component(value: number) {
+  return function (constructor: Function) {
+    console.log('Component Decorator Called !!')
+
+    constructor.prototype.uniqueID = Date.now()
+    constructor.prototype.insertInDOM = () => {
+      console.log('Inserting the component in the DOM')
+    }
   }
-  insertInDOM() {}
 }
 
-// extends
-class ProfileComponent extends Component {}
-
-// instantiate
-const profileComponent = new ProfileComponent()
+// argument
+@Component(1)
+class ProfileComponent {}
