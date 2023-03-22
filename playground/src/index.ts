@@ -1,13 +1,13 @@
 /*
-  Static Members P3
+  Static Members P4
 
 */
 
 class Ride {
-  static activeRides: number = 0 // use "static" keyword
+  static activeRides: number = 0
 
   start() {
-    Ride.activeRides++ // use "class name", not "this" to access static property
+    Ride.activeRides++
   }
   stop() {
     Ride.activeRides--
@@ -20,5 +20,6 @@ ride1.start()
 let ride2 = new Ride()
 ride2.start()
 
-// static > 1 slot in memory
-console.log(Ride.activeRides) // 2
+// problem: now we can modify it from outside
+Ride.activeRides = 100
+console.log(Ride.activeRides)
