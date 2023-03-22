@@ -1,20 +1,23 @@
 /*
-  Creating a Component P2
-  - put interfaces in a new file
-    > create models/Reminder.ts or entities/ or interfaces/ 
+  Creating a Component P3
 
 */
 
 import './App.css'
-import ReminderList from './components/ReminderList' // ***
+import ReminderList from './components/ReminderList'
+import Reminder from './models/Reminder' // (***)
+
+// ***
+const reminders: Reminder[] = [
+  { id: 1, title: 'Reminder 1' },
+  { id: 2, title: 'Reminder 2' },
+]
 
 function App() {
   return (
     <div>
-      <button className='btn btn-primary'>Click Me</button>
-
-      {/* error here > fix in next lecture */}
-      <ReminderList />
+      {/* *** */}
+      <ReminderList items={reminders} />
     </div>
   )
 }
