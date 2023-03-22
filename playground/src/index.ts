@@ -1,5 +1,9 @@
 /*
-  Private vs Protected Members P1
+  Private vs Protected Members P2
+
+  (***) DON'T use protected as long as we know what we are doing > otherwise, create "coupling" in our application
+
+  > https://viblo.asia/p/tim-hieu-ve-coupling-va-cohesion-bJzKmo7El9N
 
 */
 
@@ -10,8 +14,8 @@ class Person {
     return this.firstName + ' ' + this.lastName
   }
 
-  // private method
-  private walk() {
+  // (***) protected: can access in current and child class
+  protected walk() {
     console.log('Walking')
   }
 }
@@ -22,7 +26,7 @@ class Student extends Person {
   }
 
   takeTest() {
-    this.walk() // because private > we can not use in child class
+    this.walk() // (***) protected > can access from child class
     console.log('Taking a Test')
   }
 }
