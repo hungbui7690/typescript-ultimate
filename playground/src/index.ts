@@ -1,19 +1,11 @@
 /*
-  Type Alias P2
+  Union Types P1
 
 */
 
-// to fix this, we use type alias
-type Employee = {
-  readonly id: number
-  name: string
-  nickName?: string
-  retire: (date: Date) => void
+function kgToLbs(weight: number | string) {
+  // weight. // now, it just shows the methods that are in common between number and string
 }
 
-// with this, we don't violate DRY principle
-let employee: Employee = {
-  id: 1,
-  name: 'Joe',
-  retire() {},
-}
+kgToLbs(10)
+kgToLbs('10kg')
