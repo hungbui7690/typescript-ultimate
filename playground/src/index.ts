@@ -1,16 +1,20 @@
 /*
-  Generic Constraints P4
+  Generic Constraints P5
 
 */
 
-// create interface
-interface Person {
-  name: string
+// we can also use class
+class Person {
+  constructor(public name: string) {}
 }
 
-// extends
+class Customer extends Person {}
+
+// (***)
 function echo<T extends Person>(value: T): T {
   return value
 }
 
-const result1 = echo({ name: 'joe' })
+// (***) any class or instance derived directly or indirectly from Person class
+const result1 = echo(new Person('Joe'))
+const result2 = echo(new Customer('Nick'))
