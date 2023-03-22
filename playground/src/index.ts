@@ -1,13 +1,14 @@
 /*
-  Abstract Classes & Methods P2
+  Abstract Classes & Methods P3
 
 */
 
-// so we use abstract keyword to define abstract class > can't create new instance from abstract class
 abstract class Shape {
   constructor(public color: string) {}
 
-  render() {}
+  // we also need to abstract this method as well > remove {} + add return type
+  // note: abstract method can only appears in abstract class
+  abstract render(): void
 }
 
 class Circle extends Shape {

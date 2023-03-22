@@ -3,7 +3,6 @@ class Shape {
     constructor(color) {
         this.color = color;
     }
-    render() { }
 }
 class Circle extends Shape {
     constructor(radius, color) {
