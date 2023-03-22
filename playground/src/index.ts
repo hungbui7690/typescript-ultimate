@@ -1,5 +1,5 @@
 /*
-  Extending Generic Classes P5
+  Extending Generic Classes P6
 
 */
 
@@ -9,7 +9,7 @@ interface Product {
 }
 
 class Store<T> {
-  private _items: T[]
+  protected _items: T[] // protected
 
   add(item: T): void {
     this._items.push(item)
@@ -25,9 +25,9 @@ store.compress()
 
 ///////////////////////////////////////
 
-// Scenario 2: since _items is private > we cannot access it
+// Scenario 2: we need to set from private to protected (above) > but we still cannot access .name property
 class SearchableStore<T> extends Store<T> {
   find(name: string): T | undefined {
-    return this._items
+    return this._items.find((item) => item.name === name)
   }
 }
