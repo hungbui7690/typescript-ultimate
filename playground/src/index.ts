@@ -1,14 +1,15 @@
 /*
-  Generic Functions P2
+  Generic Functions P3
 
 */
 
-// use generic type
-function wrapInArray<T>(value: T) {
-  return [value]
+// wrap in a class
+class ArrayUtils {
+  wrapInArray<T>(value: T) {
+    return [value]
+  }
 }
 
-// with this implementation, we can use any type we want > hover
-let numbers1 = wrapInArray(1)
-let numbers2 = wrapInArray('1')
-let numbers3 = wrapInArray(true)
+let utils = new ArrayUtils()
+let numbers = utils.wrapInArray(1)
+let strings = utils.wrapInArray('1')
