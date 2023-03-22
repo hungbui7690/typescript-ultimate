@@ -1,8 +1,6 @@
 /*
-  Adding Bootstrap
-  > npm install bootstrap
-
-  - index.tsx > import
+  Creating a Component P1
+  - create components/
 
 */
 
