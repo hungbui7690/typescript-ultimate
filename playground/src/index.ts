@@ -1,15 +1,23 @@
 /*
-  Tuples
-  - fixed size & type & order
-
+  Enums P1
   
   */
 
-let user: [number, string] = [1, 'Joe']
-// user[1]. // show all string methods
+// wa normally use constant for these things
+const SMALL = 1
+const MEDIUM = 2
+const LARGE = 3
 
-// (***) the problem appears when we push new value into tuple > right now, tuple has 3 items, but no complain
-user.push(1)
+// we also use enums to do this > Pascal case + no = sign
+enum Size {
+  SMALL = 0,
+  MEDIUM, // = 1
+  LARGE, // = 2 => auto increment
+}
 
-// (***) tuple should have 2 elements, because if it has too many elements, it's hard to tell what it is
-let temp: [string, number, boolean, number] = ['a', 1, true, 2]
+enum shippingStatus {
+  PENDING = 2,
+  SHIPPED,
+  DELIVERED,
+  RETURNED, // = 5
+}
