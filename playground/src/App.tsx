@@ -1,23 +1,28 @@
 /*
-  Calling the Backend
-  > https://jsonplaceholder.typicode.com/todos
-
-  - we don't want to call the backend in App.tsx file > but we will create a separated module to do this
-  - create services/reminder.ts
-    + npm install axios
-      > axios comes with type declaration files > we don't need to install @types package
+  Using the Effect Hook P1
 
 */
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import ReminderList from './components/ReminderList'
 import Reminder from './models/Reminder'
 
+import reminderService from './services/reminder' // import the service
+
 function App() {
-  const [reminders, setReminders] = useState<Reminder[]>([
-    { id: 1, title: 'Reminder 1' },
-  ])
+  const [reminders, setReminders] = useState<Reminder[]>([]) // remove sample data
+
+  // ***
+  const loadReminders = async () => {
+    const reminders = await reminderService.getReminder()
+    setReminders(reminders)
+  }
+
+  // ***
+  useEffect(() => {
+    loadReminders() // without await
+  }, [])
 
   return (
     <div>
