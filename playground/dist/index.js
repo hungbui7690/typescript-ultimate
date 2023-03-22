@@ -1,6 +1,6 @@
 "use strict";
 /*
-  Property Decorators P1
+  Property Decorators P2
   
 */
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,19 +10,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 function MinLength(length) {
-    // similar to method decorator, but without descriptor
     return (target, propertyName) => {
-        let descriptor = {
-        // ctrl + space > we will see the list of properties with "?"
+        let value; // (***)
+        // (1)
+        const descriptor = {
+            // getter
+            get() {
+                return value;
+            },
+            // setter
+            set(newValue) {
+                if (newValue.length < length)
+                    throw new Error(`Property should be at least ${length} characters long`);
+                value = newValue;
+            },
         };
+        // (2)
+        Object.defineProperty(target, propertyName, descriptor);
     };
 }
+// we don't define getter & setter in the class > but define them in decorators
 class User {
-    // when work with property decorator, we need to use the old way constructor() definition
     constructor(password) {
         this.password = password;
     }
 }
 __decorate([
-    MinLength(4) // property decorator
+    MinLength(4)
 ], User.prototype, "password", void 0);
+// (3)
+let user = new User('1234');
+user.password = '1'; // invalid > throw err
+console.log(user.password);

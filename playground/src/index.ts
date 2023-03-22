@@ -1,23 +1,45 @@
 /*
-  Property Decorators P1
+  Property Decorators P2
   
 */
 
 function MinLength(length: number) {
-  // similar to method decorator, but without descriptor
   return (target: any, propertyName: string) => {
-    let descriptor: PropertyDescriptor = {
-      // ctrl + space > we will see the list of properties with "?"
+    let value: string // (***)
+
+    // (1)
+    const descriptor: PropertyDescriptor = {
+      // getter
+      get() {
+        return value
+      },
+
+      // setter
+      set(newValue: string) {
+        if (newValue.length < length)
+          throw new Error(
+            `Property should be at least ${length} characters long`
+          )
+        value = newValue
+      },
     }
+
+    // (2)
+    Object.defineProperty(target, propertyName, descriptor)
   }
 }
 
+// we don't define getter & setter in the class > but define them in decorators
 class User {
-  @MinLength(4) // property decorator
+  @MinLength(4)
   password: string
 
-  // when work with property decorator, we need to use the old way constructor() definition
   constructor(password: string) {
     this.password = password
   }
 }
+
+// (3)
+let user = new User('1234')
+user.password = '1' // invalid > throw err
+console.log(user.password)
