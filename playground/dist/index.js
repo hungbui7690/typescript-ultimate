@@ -13,6 +13,7 @@ class Account {
             throw new Error('Invalid Amount!!');
         this._balance += amount;
     }
+    calculateTax() { }
 }
 let account = new Account(1, 'bic', 123);
-console.log(account.getBalance());
+account.calculateTax();

@@ -1,6 +1,5 @@
 /*
-  Access Control Keyword P3
-  - what if we want to show the balance to customer > getter
+  Access Control Keyword P4
 
 */
 
@@ -16,7 +15,6 @@ class Account {
     this._balance = balance
   }
 
-  // (***) getter
   getBalance() {
     return this._balance
   }
@@ -25,8 +23,11 @@ class Account {
     if (amount <= 0) throw new Error('Invalid Amount!!')
     this._balance += amount
   }
+
+  // private method
+  private calculateTax() {}
 }
 
 let account = new Account(1, 'bic', 123)
 
-console.log(account.getBalance()) // (***)
+account.calculateTax() // complain
