@@ -1,32 +1,23 @@
 /*
-  Accessor Decorators P4
+  Property Decorators P1
   
 */
 
-function Capitalize(
-  target: any,
-  methodName: string,
-  descriptor: PropertyDescriptor
-) {
-  const original = descriptor.get
-  descriptor.get = function () {
-    const result = original!.call(this)
-
-    if (typeof result === 'string') {
-      return result.toUpperCase()
+function MinLength(length: number) {
+  // similar to method decorator, but without descriptor
+  return (target: any, propertyName: string) => {
+    let descriptor: PropertyDescriptor = {
+      // ctrl + space > we will see the list of properties with "?"
     }
-    return result
   }
 }
 
-class Person {
-  constructor(public firstName: string, public lastName: string) {}
+class User {
+  @MinLength(4) // property decorator
+  password: string
 
-  @Capitalize
-  get fullName() {
-    return 0 // (***) change to 0, null
+  // when work with property decorator, we need to use the old way constructor() definition
+  constructor(password: string) {
+    this.password = password
   }
 }
-
-let person = new Person('Joe', 'Doe')
-console.log(person.fullName) // 0, null > our code still works
