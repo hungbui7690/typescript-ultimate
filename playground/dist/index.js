@@ -1,43 +1,18 @@
 "use strict";
-class Person {
-    constructor(firstName, lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+class Shape {
+    constructor(color) {
+        this.color = color;
     }
-    get fullName() {
-        return this.firstName + ' ' + this.lastName;
+    render() { }
+}
+class Circle extends Shape {
+    constructor(radius, color) {
+        super(color);
+        this.radius = radius;
     }
-    walk() {
-        console.log('Walking');
+    render() {
+        console.log('Rendering a Circle');
     }
 }
-class Student extends Person {
-    constructor(studentID, firstName, lastName) {
-        super(firstName, lastName);
-        this.studentID = studentID;
-    }
-    takeTest() {
-        this.walk();
-        console.log('Taking a Test');
-    }
-}
-class Teacher extends Person {
-    get fullName() {
-        return `Professor ${super.fullName}`;
-    }
-}
-class Principal extends Person {
-    get fullName() {
-        return `Principal ${super.fullName}`;
-    }
-}
-function printNames(people) {
-    for (let person of people) {
-        console.log(person.fullName);
-    }
-}
-printNames([
-    new Student(1, 'John', 'Smith'),
-    new Teacher('Joe', 'Doe'),
-    new Principal('Jackson', 'Duck'),
-]);
+let shape = new Shape('red');
+shape.render();
