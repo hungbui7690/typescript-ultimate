@@ -1,7 +1,6 @@
 "use strict";
 /*
-  Accessor Decorators P2
-  - accessor decorators are similar to method decorators
+  Accessor Decorators P3
   
 */
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,11 +9,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-// (***)
 function Capitalize(target, methodName, descriptor) {
-    const original = descriptor.get; // instead use .value > we use .get
+    const original = descriptor.get;
     descriptor.get = function () {
-        original === null || original === void 0 ? void 0 : original.call(this); // use optional chaining, because type of original is any|undefined
+        const result = original.call(this); // because we know that we will apply this decorator on getter > it cannot be null > use !. instead of ?.
+        // type of result = any > we need to use type narrowing > hover above
+        if (typeof result === 'string') {
+            return result.toUpperCase();
+        }
+        return result;
     };
 }
 class Person {
@@ -27,5 +30,8 @@ class Person {
     }
 }
 __decorate([
-    Capitalize // apply decorator here
+    Capitalize
 ], Person.prototype, "fullName", null);
+// instantiate
+let person = new Person('Joe', 'Doe');
+console.log(person.fullName); // JOE DOE
