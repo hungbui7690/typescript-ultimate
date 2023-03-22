@@ -1,10 +1,11 @@
 /*
-  Nullish Coalescing Operator P2
+  Nullish Coalescing Operator P3
 
 */
 
 let speed: number | null = null
 let ride = {
-  speed: speed !== null ? speed : 30, // similar to: speed || 30 > still falsy value
+  speed: speed ?? 30, // in this case, only speed = null | undefined, then speed = 30
 }
+
 console.log(ride.speed) // 30
