@@ -1,6 +1,6 @@
 "use strict";
 /*
-  The never Type P4
+  The never Type P5
 
 */
 function reject(message) {
