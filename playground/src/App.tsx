@@ -1,7 +1,5 @@
 /*
-  Handling Events P2
-  - the data is in App.js > function need to create here
-  - but we need to pass the function through props > add function definition for props in ReminderList.tsx
+  Handling Events P3
 
 */
 
@@ -16,7 +14,9 @@ function App() {
 
   // ***
   const removeReminder = (id: number) => {
-    console.log(id)
+    const newReminders = reminders.filter((r) => r.id !== id)
+
+    setReminders(newReminders)
   }
 
   const loadReminders = async () => {
