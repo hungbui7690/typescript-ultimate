@@ -1,20 +1,20 @@
 /*
-  Generic Constraints P5
+  Extending Generic Classes P1
 
 */
 
-// we can also use class
-class Person {
-  constructor(public name: string) {}
+interface Product {
+  name: string
+  price: number
 }
 
-class Customer extends Person {}
+class Store<T> {
+  items: T[]
 
-// (***)
-function echo<T extends Person>(value: T): T {
-  return value
+  add(item: T): void {
+    this.items.push(item)
+  }
 }
 
-// (***) any class or instance derived directly or indirectly from Person class
-const result1 = echo(new Person('Joe'))
-const result2 = echo(new Customer('Nick'))
+let store = new Store<Product>()
+store.items = [] // with this implementation, we can easily clear the store by mistake
