@@ -1,3 +1,3 @@
 "use strict";
-let person = {};
-person.name = 'a';
+class SeatAssignment {
+}
