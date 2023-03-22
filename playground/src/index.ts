@@ -1,29 +1,36 @@
 /*
-  Static Members P7
+  Inheritance
+  - pic
+  - parent/base/super 
+  - child/derived/sub
 
+
+  (***) later, each class will be in a separated file as we learn "modules"
 */
 
-class Ride {
-  private static _activeRides: number = 0
+// super/base/parent class
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
 
-  start() {
-    Ride._activeRides++
+  get fullName() {
+    return this.firstName + ' ' + this.lastName
   }
-  stop() {
-    Ride._activeRides--
-  }
-
-  // (***) must turn into static method
-  static get activeRides() {
-    return Ride._activeRides
+  walk() {
+    console.log('Walking')
   }
 }
 
-let ride1 = new Ride()
-ride1.start()
+// child class
+class Student extends Person {
+  // we don't have to set public for firstName & lastName > since we set in parent class
+  constructor(public studentID: number, firstName: string, lastName: string) {
+    super(firstName, lastName)
+  }
 
-let ride2 = new Ride()
-ride2.start()
-ride2.start()
+  takeTest() {
+    console.log('Taking a Test')
+  }
+}
 
-console.log(Ride.activeRides) // now, we can access from the outside
+let student = new Student(1, 'John', 'Doe')
+// student. // we have all the methods and properties of parent and child class
