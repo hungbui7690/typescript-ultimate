@@ -1,11 +1,7 @@
 /*
-  Inheritance
-  - pic
-  - parent/base/super 
-  - child/derived/sub
-
-
-  (***) later, each class will be in a separated file as we learn "modules"
+  Method Overriding P1
+    
+  
 */
 
 // super/base/parent class
@@ -20,9 +16,7 @@ class Person {
   }
 }
 
-// child class
 class Student extends Person {
-  // we don't have to set public for firstName & lastName > since we set in parent class
   constructor(public studentID: number, firstName: string, lastName: string) {
     super(firstName, lastName)
   }
@@ -32,5 +26,9 @@ class Student extends Person {
   }
 }
 
-let student = new Student(1, 'John', 'Doe')
-// student. // we have all the methods and properties of parent and child class
+//////////////////////////////////////
+
+class Teacher extends Person {}
+
+let teacher = new Teacher('John', 'Smith')
+console.log(teacher.fullName) // (***) now using the getter of parent

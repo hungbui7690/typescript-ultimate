@@ -20,4 +20,7 @@ class Student extends Person {
         console.log('Taking a Test');
     }
 }
-let student = new Student(1, 'John', 'Doe');
+class Teacher extends Person {
+}
+let teacher = new Teacher('John', 'Smith');
+console.log(teacher.fullName);
