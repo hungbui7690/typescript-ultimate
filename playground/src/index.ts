@@ -1,10 +1,12 @@
 /*
-  Objects P4
+  Objects P5
   
-  */
+*/
 
-//  > the only place where we can use optional is un-important property > in this case, it is nickName
-let employee: { id: number; name: string; nickName?: string } = {
+// readonly
+let employee: { readonly id: number; name: string; nickName?: string } = {
   id: 1,
   name: 'Joe',
 }
+
+employee.id = 2 // invalid
