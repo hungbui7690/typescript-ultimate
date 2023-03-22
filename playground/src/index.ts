@@ -1,14 +1,11 @@
 /*
-  The never Type P3
+  The never Type P4
 
 */
 
-// if we remove never type > last line will never be executed, but no error
-function processEvent() {
-  while (true) {
-    // read msg from queue
-  }
+function reject(message: string): never {
+  throw new Error(message)
 }
 
-processEvent()
-console.log('Hello World')
+reject('...')
+console.log('hello') // this line will never be executed
