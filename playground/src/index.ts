@@ -1,10 +1,13 @@
 /*
-  Array P1
+  Array P2
 
 */
 
-// this is valid in TS
-const arr = [1, 2, '3']
+// if all values are number > TS infers the type for us > hover
+const arr = [1, 2, 3]
+arr.forEach((item) => {
+  // item. // show all methods of numbers
+})
 
-// this is not valid
-const nums: number[] = [1, 2, '3']
+// but if there's no element > type = never[] > in prev TS version > type = any[]
+let x = []
