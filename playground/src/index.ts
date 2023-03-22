@@ -1,5 +1,5 @@
 /*
-  Optional Chaining P1
+  Optional Chaining P2
 
 */
 
@@ -12,4 +12,11 @@ function getCustomer(id: number): Customer | null {
 }
 
 let customer = getCustomer(0)
-console.log(customer.birthday)
+
+// solution 1
+if (customer) {
+  console.log(customer.birthday)
+}
+
+// solution 2
+console.log(customer?.birthday)
