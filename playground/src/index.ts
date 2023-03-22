@@ -1,5 +1,5 @@
 /*
-  The "keyof" Operator P1
+  The "keyof" Operator P2
 
 */
 
@@ -15,8 +15,8 @@ class Store<T> {
     this._items.push(item)
   }
 
-  // (***)
-  find(property: string, value: unknown): T | undefined {
+  // (***) keyof T
+  find(property: keyof T, value: unknown): T | undefined {
     return this._items.find((item) => item[property] === value)
   }
 }
@@ -25,4 +25,4 @@ let store = new Store<Product>()
 store.add({ name: 'Soap', price: 10 })
 store.find('name', 'Soap')
 store.find('price', 10)
-store.find('noneExistingProperty', 1) // this line will make our app crashed
+store.find('noneExistingProperty', 1) // (***) now, we can catch this error at compiled time
