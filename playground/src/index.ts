@@ -1,15 +1,11 @@
 /*
-  Index Signature P3
+  Static Members P1
 
 */
 
-// this is index signature
-class SeatAssignment {
-  [seatNumber: string]: string
+// for ex, we want to create an uber app
+class Ride {
+  // passenger
+  // pickup location
+  // dropOffLocation
 }
-
-let seats = new SeatAssignment()
-seats.A1 = 'John'
-seats['A2'] = 'Nick'
-
-console.log(seats)

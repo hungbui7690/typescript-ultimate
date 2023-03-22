@@ -1,7 +1,3 @@
 "use strict";
-class SeatAssignment {
+class Ride {
 }
-let seats = new SeatAssignment();
-seats.A1 = 'John';
-seats['A2'] = 'Nick';
-console.log(seats);
