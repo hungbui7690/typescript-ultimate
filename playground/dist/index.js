@@ -1,6 +1,6 @@
 "use strict";
 /*
-  Accessor Decorators P3
+  Accessor Decorators P4
   
 */
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -12,8 +12,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 function Capitalize(target, methodName, descriptor) {
     const original = descriptor.get;
     descriptor.get = function () {
-        const result = original.call(this); // because we know that we will apply this decorator on getter > it cannot be null > use !. instead of ?.
-        // type of result = any > we need to use type narrowing > hover above
+        const result = original.call(this);
         if (typeof result === 'string') {
             return result.toUpperCase();
         }
@@ -26,12 +25,11 @@ class Person {
         this.lastName = lastName;
     }
     get fullName() {
-        return `${this.firstName} ${this.lastName}`;
+        return 0; // (***) change to 0, null
     }
 }
 __decorate([
     Capitalize
 ], Person.prototype, "fullName", null);
-// instantiate
 let person = new Person('Joe', 'Doe');
-console.log(person.fullName); // JOE DOE
+console.log(person.fullName); // 0, null > our code still works

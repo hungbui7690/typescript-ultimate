@@ -1,5 +1,5 @@
 /*
-  Accessor Decorators P3
+  Accessor Decorators P4
   
 */
 
@@ -10,9 +10,8 @@ function Capitalize(
 ) {
   const original = descriptor.get
   descriptor.get = function () {
-    const result = original!.call(this) // because we know that we will apply this decorator on getter > it cannot be null > use !. instead of ?.
+    const result = original!.call(this)
 
-    // type of result = any > we need to use type narrowing > hover above
     if (typeof result === 'string') {
       return result.toUpperCase()
     }
@@ -25,10 +24,9 @@ class Person {
 
   @Capitalize
   get fullName() {
-    return `${this.firstName} ${this.lastName}`
+    return 0 // (***) change to 0, null
   }
 }
 
-// instantiate
 let person = new Person('Joe', 'Doe')
-console.log(person.fullName) // JOE DOE
+console.log(person.fullName) // 0, null > our code still works
