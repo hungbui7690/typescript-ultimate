@@ -1,15 +1,14 @@
 /*
-  Method Decorators P4
+  Method Decorators P5
 
 */
 
 function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
-  const original = descriptor.value
+  const original = descriptor.value as Function // type assertion
 
   descriptor.value = function () {
-    // (***) if we want to run the old method implementation here
     console.log('Before')
-    // original. // type === any
+    original.call(this, 'Hi there!!!') // call say('Hi there!!!') > this case we hard code the message
     console.log('After')
   }
 }
