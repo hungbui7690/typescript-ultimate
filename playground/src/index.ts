@@ -1,13 +1,14 @@
 /*
-  Parameterized Decorators P1
+  Parameterized Decorators P2
 
 */
 
-// we want to add parameter > need to return function
 function Component(value: number) {
-  return function (constructor: Function) {
+  // arrow function
+  return (constructor: Function) => {
     console.log('Component Decorator Called !!')
 
+    constructor.prototype.options = value // use parameter here
     constructor.prototype.uniqueID = Date.now()
     constructor.prototype.insertInDOM = () => {
       console.log('Inserting the component in the DOM')
@@ -15,6 +16,5 @@ function Component(value: number) {
   }
 }
 
-// argument
 @Component(1)
 class ProfileComponent {}
