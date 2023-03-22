@@ -1,9 +1,10 @@
 /*
-  The any Type P2
-
+  The any Type P3
+  - we also can turn on this 
+    > "noImplicitAny": false
+    > we don't nee to have any type > though error is gone, this is not recommended since it violate the idea of TS
 */
 
-// in this case, document has the type of "any" implicitly > we need to use "any" in this case
-function render(document: any) {
+function render(document) {
   console.log(document)
 }
