@@ -1,14 +1,14 @@
 /*
-  Nullable Types P2
+  Nullable Types P3
 
 */
 
-// in case we want to have null value > add to the type
-function greet(name: string | null) {
+// we also can have undefined type
+function greet(name: string | null | undefined) {
   if (name) console.log(name.toUpperCase())
   else {
-    console.log('null')
+    console.log('null or undefined param')
   }
 }
 
-greet(null) // in JS, we can use this > and our program will crashed
+greet(undefined)
