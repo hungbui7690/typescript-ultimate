@@ -1,6 +1,5 @@
 /*
-  Creating Objects P2
-  - constructor does not have any return type, since it always return the instance of that class
+  readonly & Optional Properties P1
 
 */
 
@@ -16,6 +15,8 @@ class Account {
   }
 
   deposit(amount: number): void {
+    this.id = 0 // (***) right now, we still can change the value of id
+
     if (amount <= 0) throw new Error('Invalid Amount!!')
 
     this.balance += amount
@@ -24,8 +25,10 @@ class Account {
 
 let account = new Account(1, 'bic', 123)
 
-account.deposit(100) // (***)
-console.log(account.balance) // 223
+// (***)
+account.id = 10
 console.log(account)
 
-console.log(account instanceof Account) // true
+// (***)
+account.deposit(123)
+console.log(account)
