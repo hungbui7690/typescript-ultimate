@@ -1,13 +1,15 @@
 /*
-  Array P2
+  Tuples
+  - fixed size & type & order
 
-*/
+  
+  */
 
-// if all values are number > TS infers the type for us > hover
-const arr = [1, 2, 3]
-arr.forEach((item) => {
-  // item. // show all methods of numbers
-})
+let user: [number, string] = [1, 'Joe']
+// user[1]. // show all string methods
 
-// but if there's no element > type = never[] > in prev TS version > type = any[]
-let x = []
+// (***) the problem appears when we push new value into tuple > right now, tuple has 3 items, but no complain
+user.push(1)
+
+// (***) tuple should have 2 elements, because if it has too many elements, it's hard to tell what it is
+let temp: [string, number, boolean, number] = ['a', 1, true, 2]
