@@ -1,6 +1,5 @@
 /*
-  Method Overriding P3
-  - alternative way to call parent method
+  Method Overriding P4
   
 */
 
@@ -28,8 +27,8 @@ class Student extends Person {
 //////////////////////////////////////
 
 class Teacher extends Person {
-  // alternative way
-  override get fullName() {
+  // (***) if we remove the override keyword, it still works > but it will disconnect with the parent class
+  get fullName() {
     return `Professor ${super.fullName}`
   }
 }
