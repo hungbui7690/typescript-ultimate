@@ -1,15 +1,14 @@
 /*
-  Creating a Router
-  - create routes/reminder.ts
-  
+  Parsing Request Bodies P1
+  - routes/reminders.ts
+
 */
 
 import express from 'express'
 const app = express()
 
-import remindersRouter from './routes/reminders' // ***
+import remindersRouter from './routes/reminders'
 
-// *** test with /reminders
 app.use('/reminders', remindersRouter)
 
 app.get('/', (req, res) => {
