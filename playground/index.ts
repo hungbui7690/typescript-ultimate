@@ -1,6 +1,6 @@
 /*
-  Building an API P1
-  - create models/reminders.ts
+  Building an API P2
+  - routes/reminders.ts
   
 */
 
