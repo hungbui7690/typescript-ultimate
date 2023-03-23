@@ -1,5 +1,5 @@
 /*
-  Handling Form Submission P2
+  Handling Form Submission P3
 
 */
 
@@ -13,9 +13,11 @@ import NewReminder from './components/NewReminder'
 function App() {
   const [reminders, setReminders] = useState<Reminder[]>([])
 
-  // ***
-  const addReminder = (title: string) => {
-    console.log(title)
+  // *** async/await > go to form and clear field after add
+  const addReminder = async (title: string) => {
+    const newReminder = await reminderService.addReminder(title) // the api just allow us to add 1 element, since new id does not change
+    console.log(newReminder)
+    setReminders([newReminder, ...reminders])
   }
 
   const removeReminder = (id: number) => {
@@ -35,9 +37,7 @@ function App() {
 
   return (
     <div>
-      <NewReminder
-        onAddReminder={addReminder} // *** err > need to define interface
-      />
+      <NewReminder onAddReminder={addReminder} />
       <ReminderList items={reminders} onRemoveReminder={removeReminder} />
     </div>
   )
