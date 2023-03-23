@@ -1,6 +1,9 @@
 /*
-  Handling Events P3
+  Building a Form P1
+  - create components/NewReminder.tsx
 
+  - label+input.form-control+button.btn.btn-primary.rounded-pill
+  > + is siblings
 */
 
 import { useState, useEffect } from 'react'
@@ -9,10 +12,11 @@ import ReminderList from './components/ReminderList'
 import Reminder from './models/Reminder'
 import reminderService from './services/reminder'
 
+import NewReminder from './components/NewReminder' // ***
+
 function App() {
   const [reminders, setReminders] = useState<Reminder[]>([])
 
-  // ***
   const removeReminder = (id: number) => {
     const newReminders = reminders.filter((r) => r.id !== id)
 
@@ -30,6 +34,7 @@ function App() {
 
   return (
     <div>
+      <NewReminder />
       <ReminderList items={reminders} onRemoveReminder={removeReminder} />
     </div>
   )
