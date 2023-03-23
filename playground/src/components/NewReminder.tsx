@@ -1,15 +1,22 @@
 import React, { useState } from 'react'
 
-const NewReminder = (): JSX.Element => {
+// ***
+interface NewReminderProps {
+  onAddReminder: (title: string) => void
+}
+
+// ***
+const NewReminder = ({ onAddReminder }: NewReminderProps): JSX.Element => {
   const [title, setTitle] = useState('')
 
-  // **** we don't implement here, but need to implement in App.tsx, because the state list is over there
   const submitForm = (e: React.FormEvent) => {
     e.preventDefault()
+
+    // ***
+    onAddReminder(title)
   }
 
   return (
-    // ***
     <form onSubmit={submitForm}>
       <label htmlFor='add-reminder' className='my-3'>
         Add Reminder

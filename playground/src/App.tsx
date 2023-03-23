@@ -1,6 +1,5 @@
 /*
-  Handling Form Submission P1
-  - 
+  Handling Form Submission P2
 
 */
 
@@ -13,6 +12,11 @@ import NewReminder from './components/NewReminder'
 
 function App() {
   const [reminders, setReminders] = useState<Reminder[]>([])
+
+  // ***
+  const addReminder = (title: string) => {
+    console.log(title)
+  }
 
   const removeReminder = (id: number) => {
     const newReminders = reminders.filter((r) => r.id !== id)
@@ -31,7 +35,9 @@ function App() {
 
   return (
     <div>
-      <NewReminder />
+      <NewReminder
+        onAddReminder={addReminder} // *** err > need to define interface
+      />
       <ReminderList items={reminders} onRemoveReminder={removeReminder} />
     </div>
   )
