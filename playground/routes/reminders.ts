@@ -1,6 +1,6 @@
 import { Router } from 'express'
-
-import CreateReminderDto from '../dtos/CreateReminderDto' // ***
+import CreateReminderDto from '../dtos/CreateReminderDto'
+import Reminder from '../models/reminders'
 
 const router = Router()
 
@@ -9,7 +9,11 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const { title } = req.body as CreateReminderDto // ***
+  const { title } = req.body as CreateReminderDto
+
+  // ***
+  const reminder = new Reminder(title)
+
   res.json(title)
 })
 
