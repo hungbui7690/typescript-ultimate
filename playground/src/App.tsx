@@ -1,9 +1,7 @@
 /*
-  Building a Form P1
-  - create components/NewReminder.tsx
+  Building a Form P2
+  - add state for form
 
-  - label+input.form-control+button.btn.btn-primary.rounded-pill
-  > + is siblings
 */
 
 import { useState, useEffect } from 'react'
@@ -11,8 +9,7 @@ import './App.css'
 import ReminderList from './components/ReminderList'
 import Reminder from './models/Reminder'
 import reminderService from './services/reminder'
-
-import NewReminder from './components/NewReminder' // ***
+import NewReminder from './components/NewReminder'
 
 function App() {
   const [reminders, setReminders] = useState<Reminder[]>([])
