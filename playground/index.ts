@@ -1,20 +1,18 @@
 /*
-  Executing TS Code with Node
-  > node index.ts > err
-    > since node does not understand TS
-    > we have 2 options:
-      + tsc : transpile ts to js 
-      + install ts-node
-        > npm init -y
-        > npm i ts-node
+  Setting Up an Express Project
+  > npm init -y
+  > npm i express
+  > npm i -D typescript @types/node @types/express
+  > tsc --init
+  > npm install -D nodemon
+  > package.json: "nodemon index.ts"
+  
+  (***) we have to install typescript though we have TS in our machine just because we want to freeze the version of TS that we use > also, we if other devs don't have TS on their machine, they can install through package.json
+  (***) latest version of nodemon supports TS
 
-  > package.json: "start": "ts-node index.ts"
-    > compile implicitly and run at the same time
-
-  (***) we can install ts-node globally 
-    > npm i -g ts-node
-    > ts-node index.ts
 */
 
-let x: number = 1
-console.log(x)
+import express from 'express'
+const app = express()
+
+app.listen(5000, () => console.log('Server Started...'))
